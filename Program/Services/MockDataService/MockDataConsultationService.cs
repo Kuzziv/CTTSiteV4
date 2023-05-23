@@ -13,6 +13,7 @@ namespace CTTSite.Services.MockDataService
             ConsultationsList = GetAllConsultations();
         }
 
+
         public List<Consultation> GetAllConsultations()
         {
             return MockData.MockDataConsultation.GetAllConsultations();
