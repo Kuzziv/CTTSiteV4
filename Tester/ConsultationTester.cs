@@ -63,6 +63,15 @@ namespace UintTester
             Assert.IsNotNull(consultation);
         }
 
+        // Tests the GetConsultationByID method with a null case
+        [TestMethod]
+        public void Test_GetConsultationByID_Null()
+        {
+            Consultation consultation = _mockDataConsultationService.GetConsultationByID(15);
+            //Assert
+            Assert.IsNull(consultation);
+        }
+
         // Tests the CreateConsultation method
         [TestMethod]
         public void Test_CreateConsultation()
@@ -137,6 +146,15 @@ namespace UintTester
         {
             DateTime date = DateTime.Now.AddDays(-2);
             Consultation consultationTest = new Consultation(1, date, new TimeSpan(10, 0, 0), new TimeSpan(11, 0, 0), 2, "", "", "", false);
+            //Assert
+            Assert.IsFalse(_mockDataConsultationService.IsDateWithInPresentDate(consultationTest));
+        }
+
+        // Tests the IsDateWithInPresentDate method with a null case
+        [TestMethod]
+        public void Test_IsDateWithInPresentDate_null()
+        {
+            Consultation consultationTest = null;
             //Assert
             Assert.IsFalse(_mockDataConsultationService.IsDateWithInPresentDate(consultationTest));
         }
