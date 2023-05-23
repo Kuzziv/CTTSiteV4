@@ -101,32 +101,39 @@ namespace UintTester
         public void Test_IsDateWithInPresentDate()
         {
             DateTime date = DateTime.Now;
+            Consultation consultationTest = new Consultation(1, date, new TimeSpan(10, 0, 0), new TimeSpan(11, 0, 0), 2, "", "", "", false);
             //Assert
-            Assert.IsTrue(_mockDataConsultationService.IsDateWithInPresentDate(date));
+            Assert.IsTrue(_mockDataConsultationService.IsDateWithInPresentDate(consultationTest));
         }
 
         [TestMethod]
         public void Test_IsDateWithInPresentDate_False()
         {
+            //
+
             DateTime date = DateTime.Now.AddDays(-1);
+
+            Consultation consultationTest = new Consultation(1, date, new TimeSpan(10, 0, 0), new TimeSpan(11, 0, 0), 2, "", "", "", false);
             //Assert
-            Assert.IsFalse(_mockDataConsultationService.IsDateWithInPresentDate(date));
+            Assert.IsFalse(_mockDataConsultationService.IsDateWithInPresentDate(consultationTest));
         }
 
         [TestMethod]
         public void Test_IsDateWithInPresentDate_True()
         {
             DateTime date = DateTime.Now.AddDays(1);
+            Consultation consultationTest = new Consultation(1, date, new TimeSpan(10, 0, 0), new TimeSpan(11, 0, 0), 2, "", "", "", false);
             //Assert
-            Assert.IsTrue(_mockDataConsultationService.IsDateWithInPresentDate(date));
+            Assert.IsTrue(_mockDataConsultationService.IsDateWithInPresentDate(consultationTest));
         }
 
         [TestMethod]
         public void Test_IsDateWithInPresentDate_False2()
         {
             DateTime date = DateTime.Now.AddDays(2);
+            Consultation consultationTest = new Consultation(1, date, new TimeSpan(10, 0, 0), new TimeSpan(11, 0, 0), 2, "", "", "", false);
             //Assert
-            Assert.IsFalse(_mockDataConsultationService.IsDateWithInPresentDate(date));
+            Assert.IsFalse(_mockDataConsultationService.IsDateWithInPresentDate(consultationTest));
         }
 
         [TestMethod]
@@ -135,8 +142,9 @@ namespace UintTester
             DateTime date = DateTime.Now;
             TimeSpan startTime = DateTime.Now.TimeOfDay;
             TimeSpan endTime = DateTime.Now.TimeOfDay;
+            Consultation consultationTest = new Consultation(1, date, startTime, endTime, 2, "", "", "", false);
             //Assert
-            Assert.IsTrue(_mockDataConsultationService.IsTimeSlotAvailableInDataBase(date, startTime, endTime));
+            Assert.IsTrue(_mockDataConsultationService.IsTimeSlotAvailableInDataBase(consultationTest));
         }
 
         [TestMethod]
@@ -145,8 +153,9 @@ namespace UintTester
             DateTime date = DateTime.Now;
             TimeSpan startTime = DateTime.Now.TimeOfDay;
             TimeSpan endTime = DateTime.Now.TimeOfDay;
+            Consultation consultationTest = new Consultation(1, date, startTime, endTime, 2, "", "", "", false);
             //Assert
-            Assert.IsFalse(_mockDataConsultationService.IsTimeSlotAvailableInDataBase(date, startTime, endTime));
+            Assert.IsFalse(_mockDataConsultationService.IsTimeSlotAvailableInDataBase(consultationTest));
         }
 
         [TestMethod]
@@ -155,8 +164,9 @@ namespace UintTester
             DateTime date = DateTime.Now;
             TimeSpan startTime = DateTime.Now.TimeOfDay;
             TimeSpan endTime = DateTime.Now.TimeOfDay;
+            Consultation consultationTest = new Consultation(1, date, startTime, endTime, 2, "", "", "", false);
             //Assert
-            Assert.IsTrue(_mockDataConsultationService.IsTimeSlotAvailableInDataBase(date, startTime, endTime));
+            Assert.IsTrue(_mockDataConsultationService.IsTimeSlotAvailableInDataBase(consultationTest));
         }
 
         [TestMethod]
@@ -165,8 +175,9 @@ namespace UintTester
             DateTime date = DateTime.Now;
             TimeSpan startTime = DateTime.Now.TimeOfDay;
             TimeSpan endTime = DateTime.Now.TimeOfDay;
+            Consultation consultationTest = new Consultation(1, date, startTime, endTime, 2, "", "", "", false);
             //Assert
-            Assert.IsFalse(_mockDataConsultationService.IsTimeSlotBeforeDateNow(date, startTime, endTime));
+            Assert.IsFalse(_mockDataConsultationService.IsTimeSlotBeforeDateNow(consultationTest));
         }
 
         [TestMethod]
@@ -175,8 +186,9 @@ namespace UintTester
             DateTime date = DateTime.Now;
             TimeSpan startTime = DateTime.Now.TimeOfDay;
             TimeSpan endTime = DateTime.Now.TimeOfDay;
+            Consultation consultationTest = new Consultation(1, date, startTime, endTime, 2, "", "", "", false);
             //Assert
-            Assert.IsTrue(_mockDataConsultationService.IsTimeSlotBeforeDateNow(date, startTime, endTime));
+            Assert.IsTrue(_mockDataConsultationService.IsTimeSlotBeforeDateNow(consultationTest));
         }
 
         [TestMethod]
@@ -184,8 +196,9 @@ namespace UintTester
         {
             TimeSpan startTime = DateTime.Now.TimeOfDay;
             TimeSpan endTime = DateTime.Now.TimeOfDay;
+            Consultation consultationTest = new Consultation(1, DateTime.Now.Date, startTime, endTime, 2, "", "", "", false);
             //Assert
-            Assert.IsFalse(_mockDataConsultationService.IsTimeSlotCorrectEntered(startTime, endTime));
+            Assert.IsFalse(_mockDataConsultationService.IsTimeSlotCorrectEntered(consultationTest));
         }
 
         [TestMethod]
@@ -193,8 +206,9 @@ namespace UintTester
         {
             TimeSpan startTime = DateTime.Now.TimeOfDay;
             TimeSpan endTime = DateTime.Now.TimeOfDay;
+            Consultation consultationTest = new Consultation(1, DateTime.Now.Date, startTime, endTime, 2, "", "", "", false);
             //Assert
-            Assert.IsTrue(_mockDataConsultationService.IsTimeSlotCorrectEntered(startTime, endTime));
+            Assert.IsTrue(_mockDataConsultationService.IsTimeSlotCorrectEntered(consultationTest));
         }
     }
 }

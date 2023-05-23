@@ -95,12 +95,6 @@ namespace CTTSite.Services.MockDataService
             }
         }
 
-        // Is the method even needed?
-        public void SubmitConsultationByEmail(Consultation consultation, string email)
-        {
-            
-        }
-
         public void DeleteExpiredUnbookedConsultations()
         {
             List<Consultation> allConsultations = ConsultationsList;
