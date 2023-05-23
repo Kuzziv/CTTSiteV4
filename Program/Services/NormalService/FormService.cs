@@ -464,18 +464,18 @@ namespace CTTSite.Services.NormalService
             {
                 FormHotCrossBun formO = GetFormHotCrossBunByUserEmail(formN.UserEmail);
                 if (formO != null)
-                {                  
+                {
 
                     formN.ID = formO.ID;
                     formN.UserEmail = formO.UserEmail;
 
                     formO = formN;
-                    
+
                     await _hotCrossBunService.UpdateObjectAsync(formO);
                     _hotCrossBuns = _hotCrossBunService.GetObjectsAsync().Result.ToList();
 
-                }              
-                
+                }
+
             }
 
         }
