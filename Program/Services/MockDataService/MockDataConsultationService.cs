@@ -13,6 +13,7 @@ namespace CTTSite.Services.MockDataService
             ConsultationsList = GetAllConsultations();
         }
 
+
         public List<Consultation> GetAllConsultations()
         {
             return MockData.MockDataConsultation.GetAllConsultations();
@@ -92,12 +93,6 @@ namespace CTTSite.Services.MockDataService
 
                 }
             }
-        }
-
-        // Is the method even needed?
-        public void SubmitConsultationByEmail(Consultation consultation, string email)
-        {
-            
         }
 
         public void DeleteExpiredUnbookedConsultations()
