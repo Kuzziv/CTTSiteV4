@@ -1,0 +1,72 @@
+[
+  {
+    "ID": 1,
+    "Date": "2022-11-05T00:00:00",
+    "StartTime": "15:00:00",
+    "EndTime": "16:00:00",
+    "UserID": 2,
+    "BookedNamed": " ",
+    "TelefonNummer": " ",
+    "BookedEmail": " "
+  },
+  {
+    "ID": 2,
+    "Date": "2023-11-05T00:00:00",
+    "StartTime": "17:00:00",
+    "EndTime": "18:00:00",
+    "UserID": 2,
+    "BookedNamed": " ",
+    "TelefonNummer": " ",
+    "BookedEmail": " "
+  },
+  {
+    "ID": 3,
+    "Date": "2023-11-05T00:00:00",
+    "StartTime": "02:00:00",
+    "EndTime": "02:00:00",
+    "UserID": 2,
+    "BookedNamed": " ",
+    "TelefonNummer": " ",
+    "BookedEmail": " "
+  },
+  {
+    "ID": 4,
+    "Date": "2023-11-05T00:00:00",
+    "StartTime": "11:00:00",
+    "EndTime": "00:00:00",
+    "UserID": 2,
+    "BookedNamed": " ",
+    "TelefonNummer": " ",
+    "BookedEmail": " "
+  },
+  {
+    "ID": 6,
+    "Date": "2023-11-05T00:00:00",
+    "StartTime": "14:00:00",
+    "EndTime": "15:00:00",
+    "UserID": 2,
+    "BookedNamed": " ",
+    "TelefonNummer": " ",
+    "BookedEmail": " "
+  },
+  {
+    "ID": 8,
+    "Date": "2023-11-05T00:00:00",
+    "StartTime": "11:00:00",
+    "EndTime": "00:00:00",
+    "UserID": 0,
+    "BookedNamed": " Mads Ludvigsen",
+    "TelefonNummer": "61675837",
+    "BookedEmail": "hifnh@live.dk"
+  },
+  {
+    "ID": 9,
+    "Date": "2023-12-05T00:00:00",
+    "StartTime": "09:00:00",
+    "EndTime": "10:00:00",
+    "UserID": 2,
+    "BookedNamed": " ",
+    "TelefonNummer": " ",
+    "BookedEmail": " "
+  }
+]

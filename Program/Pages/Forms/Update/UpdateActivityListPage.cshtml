@@ -1,0 +1,80 @@
+﻿@page
+@model CTTSite.Pages.Forms.UpdateActivityListPageModel
+@{
+}
+
+
+<div class="col-md-12 text-center" style="margin-bottom:4%">
+    <h1 class="text-center">Activity List</h1>
+    <h3 class="text-danger text-center"> @Model.message</h3>
+    <form method="post">
+        <input type="submit" asp-page-handler="SaveForm" value="Save Form" class="btn btn-dark text-center" />
+        
+        <div class="container-fluid">
+            <div class="row">
+                 <div class="col-md-12">
+                    <div class="form-group">
+                         <label asp-for="@Model.formActivityList.UserEmail" class="control-lable"></label>
+                         <input asp-for="@Model.formActivityList.UserEmail" class="form-control" value="@HttpContext.User.Identity.Name" readonly />
+                     </div>
+                 </div>
+             </div>
+             <br />
+       
+
+
+        <div class="row">
+         <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="@Model.formActivityList.Pleasure " class="control-lable">Pleasure</label>
+            <input asp-for="@Model.formActivityList.Pleasure" class="form-control" value="@Model.formActivityList.Pleasure" />
+        </div>
+        </div>
+
+        <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="@Model.formActivityList.Exercise" class="control-lable">Exercise</label>
+            <input asp-for="@Model.formActivityList.Exercise" class="form-control" value="@Model.formActivityList.Exercise" />
+        </div>
+        </div>
+        </div>
+            <br />
+
+        <div class="row">
+         <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="@Model.formActivityList.Achievement" class="control-lable">Achievement</label>
+            <input asp-for="@Model.formActivityList.Achievement" class="form-control" value="@Model.formActivityList.Achievement" />
+        </div>
+        </div>
+
+        
+        <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="@Model.formActivityList.Social" class="control-lable">Social</label>
+            <input asp-for="@Model.formActivityList.Social" class="form-control" value="@Model.formActivityList.Social" />
+        </div>
+                </div>
+            </div>
+        
+        <br />
+
+                <div class="row">
+
+                    <div class="input-group col-md-12">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3 text-center">
+                            <input type="submit" asp-page-handler="SaveForm" value="Save Form" class="btn btn-dark" />
+                        </div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3 text-center">
+                            <input type="submit" asp-page-handler="SubmitForm" value="Submit Form" class="btn btn-danger" />
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+                </div>
+        </div>
+        
+        
+    </form>
+</div>

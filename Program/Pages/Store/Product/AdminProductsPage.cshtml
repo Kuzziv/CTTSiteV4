@@ -1,0 +1,43 @@
+﻿@page
+@model CTTSite.Pages.Store.Product.AdminProductsPageModel
+@{
+}
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-1"></div>
+
+        <div class="col-md-10 text-center">
+    <h1><b>Store</b></h1>
+
+    <div class="row">
+
+        @foreach (var Item in Model.Items)
+        {
+            <div style="width:20%">
+                <a class="text-decoration-none text-white" asp-page="SpecificProductPage" asp-route-id="@Item.ID">
+                    <div class="card align-content-center bg-dark">
+                        <img src="@Item.IMG" alt="ProductImage" class="card-img-top img-fluid">
+                        <div class="card-body text-center">
+                            <h4 class="card-title"><b>@Item.Name</b></h4>
+                            <h4 class="card-text">@Item.Price £</h4>
+                            <h4 class="card-text">Product Stock: @Item.Stock </h4>
+                            <a class="btn btn-dark" type="button" asp-page="UpdateProductPage" asp-route-id="@Item.ID"><i class="fa fa-pencil-square-o"></i></a>
+                            <a class="btn btn-danger" type="button" asp-page="DeleteProductPage" asp-route-id="@Item.ID"><i class="fa fa-trash"></i></a>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+
+    </div>
+    <br />
+    <a class="btn btn-dark" type="button" asp-page="CreateProductPage">Create product</a>
+
+
+<a asp-page="/Admin/ToolsPage" class="btn btn-outline-dark">Back</a>
+</div>
+<div class="col-md-1"></div>
+</div>
+</div>

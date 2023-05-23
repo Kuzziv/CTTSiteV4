@@ -1,0 +1,60 @@
+﻿@page
+@model CTTSite.Pages.TheRoomBooking.UpdateRoomBookingPageModel
+@{
+}
+
+<body style="background-color:#f6d8cc;">
+
+    @if (User.Identity != null && (@Model.RoomBooking.UserEmail == User.Identity.Name || User.IsInRole("admin") == true))
+    {
+
+    <h1 class="text-center"><b>Update Booking</b></h1>
+    <br />
+    <h4 class="text-center text-danger">@Model.Message</h4>
+    <br />
+    <form method="post" class="text-center" style="width:80%; margin-inline:10%">
+        <div class="row" hidden="hidden">
+            <div class="form-group" style="width:20%; margin-inline:5%">
+                <label asp-for="@Model.RoomBooking.ID" class="control-lable">ID:</label>
+                <input asp-for="@Model.RoomBooking.ID" class="form-control" readonly />
+                <span asp-validation-for="@Model.RoomBooking.ID" class="text-danger"></span><br />
+            </div>
+            <div class="form-group" style="width:60%; margin-inline:5%">
+                <label asp-for="@Model.RoomBooking.UserEmail" class="control-lable">User:</label>
+                <input asp-for="@Model.RoomBooking.UserEmail" class="form-control" readonly />
+                <span asp-validation-for="@Model.RoomBooking.UserEmail" class="text-danger"></span><br />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group" style="width:40%; margin-inline:5%">
+                <label asp-for="@Model.RoomBooking.StartDateTime" class="control-lable">From:</label>
+                <input asp-for="@Model.RoomBooking.StartDateTime" class="form-control" />
+                <span asp-validation-for="@Model.RoomBooking.StartDateTime" class="text-danger"></span><br />
+            </div>
+            <div class="form-group" style="width:40%; margin-inline:5%">
+                <label asp-for="@Model.RoomBooking.EndDateTime" class="control-lable">Till:</label>
+                <input asp-for="@Model.RoomBooking.EndDateTime" class="form-control" />
+                <span asp-validation-for="@Model.RoomBooking.EndDateTime" class="text-danger"></span><br />
+            </div>
+        </div>
+
+        <div class="form-group" style="width:90%; margin-inline:5%">
+            <label asp-for="@Model.RoomBooking.Description" class="control-lable"></label>
+            <input asp-for="@Model.RoomBooking.Description" class="form-control" />
+            <span asp-validation-for="@Model.RoomBooking.Description" class="text-danger"></span><br />
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Update" class="btn btn-dark" style="margin-inline:1%" asp-route-id="@Model.RoomBooking.ID" />
+            <a asp-page="/TheRoomBooking/SpecificRoomBookingPage" asp-route-id="@Model.RoomBooking.ID" class="btn btn-outline-dark" style="margin-inline:1%">Back</a>
+        </div>
+    </form>
+
+    }
+    else
+    {
+        <h1 class="text-center"><b>You are not logged in as the creator of this room booking or as an admin</b></h1>
+    }
+
+</body>

@@ -1,0 +1,22 @@
+﻿@page
+@model CTTSite.Pages.User.LogIn.LogOutPageModel
+@{
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8 text-center text-dark">
+<h1>Are you sure you want to log out?</h1>
+
+ <form method="post">
+    <div class="form-group">
+        <input type="submit" value="Yes" class="btn btn-danger" />
+        <a asp-page="/Index" class="btn btn-outline-dark">No</a>
+    </div>
+    
+</form>
+    </div>
+        <div class="col-2"></div>
+</div>
+</div>

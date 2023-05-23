@@ -1,0 +1,57 @@
+﻿@page
+@model CTTSite.Pages.Store.Cart.SpecificUserCartPageModel
+@{
+}
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-1"></div>
+
+        <div class="col-md-10 text-center">
+    <h1 class="text-center"><b>@Model.User.Identity.Name's Cart</b></h1>
+    <br />
+
+    <table class="table table-bordered table-hover table-dark" width="80%">
+        <thead>
+            <tr class="btn-secondary active">
+                <th>Product name</th>
+                <th>Product price</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (@Model.CartItems != null)
+            {
+                foreach (Models.CartItem cartItem in Model.CartItems)
+                {
+                    <tr class="btn-secondary">
+                        <td>
+                            @cartItem.Item.Name
+                        </td>
+                        <td>
+                            £@cartItem.Item.Price
+                        </td>
+                        <td>
+                            @cartItem.Quantity
+                        </td>
+                        <td>
+                            <a class="btn btn-danger" type="button" asp-page="DeleteCartItemPage" asp-route-id="@cartItem.ID"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+
+
+@if (@Model.CartItemsCount > 0)
+{
+    <a class="btn btn-dark" type="button" asp-page="/Store/Shipping/CreateShippingPage" asp-route-id="">Order now</a>
+    <span id="total-price" class="btn btn-dark" disabled style="cursor: default;">Total price: £@Model.TotalPrice</span>
+}
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>

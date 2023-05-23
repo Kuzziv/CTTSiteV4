@@ -1,0 +1,32 @@
+﻿@page "{id:int}"
+@model CTTSite.Pages.Store.Shipping.SpecificShippingPageModel
+@{
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Specific Shipping Page</title>
+</head>
+<body class="text-center" style="background-color:#f6d8cc;">
+    @if (Model.ShippingInfo != null)
+    {
+        <div>
+            <h1>@Model.ShippingInfo.FirstName Shipping info</h1>
+            <p>Shipping ID: @Model.ShippingInfo.ID</p>
+            <p>User ID: @Model.ShippingInfo.UserID</p>
+            <p>Order ID: @Model.ShippingInfo.OrderID</p>
+            <p>Address: @Model.ShippingInfo.Address</p>
+            <p>City: @Model.ShippingInfo.City</p>
+            <p>PostCode: @Model.ShippingInfo.PostCode</p>
+            <p>County: @Model.ShippingInfo.County</p>
+            <p>Phone Number: @Model.ShippingInfo.PhoneNumber</p>
+            <p>First Name: @Model.ShippingInfo.FirstName</p>
+            <p>Last Name: @Model.ShippingInfo.LastName</p>
+            <p>Submission Date: @Model.ShippingInfo.SubmissionDate</p>
+        </div>
+        <a class="btn btn-dark" type="button" asp-page="/Store/Shipping/EditShippingPage" asp-route-id="@Model.ShippingInfo.OrderID">Update</a>
+            <a asp-page="/Store/Order/AllOrderPage" class="btn btn-outline-dark">Back</a>
+    }
+
+
+</body>

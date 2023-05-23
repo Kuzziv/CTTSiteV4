@@ -1,0 +1,50 @@
+﻿@page "{id:int}"
+@model CTTSite.Pages.Store.Order.SpecificUserOldOrderPageModel
+@{
+}
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-1"></div>
+
+        <div class="col-md-10 text-center">
+
+    <h1 class="text-center"><b>@Model.User.Identity.Name's Order: @Model.Order.ID</b></h1>
+    <br />
+
+    <table class="table table-bordered table-hover table-dark" width="80%">
+        <thead>
+            <tr class="btn-secondary active">
+                <th>Product name</th>
+                <th>Product price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (@Model.CartItems != null)
+            {
+                foreach (Models.CartItem cartItem in Model.CartItems)
+                {
+                    <tr class="btn-secondary">
+                        <td>
+                            @cartItem.Item.Name
+                        </td>
+                        <td>
+                            £@cartItem.Item.Price
+                        </td>
+                        <td>
+                            @cartItem.Quantity
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+
+<a class="btn btn-outline-dark" type="button" asp-page="SpecificUserOrderPage" asp-route-id="">Back to order history</a>
+<span id="total-price" class="btn btn-dark" disabled style="cursor: default;">Total price: £@Model.TotalPrice</span>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>

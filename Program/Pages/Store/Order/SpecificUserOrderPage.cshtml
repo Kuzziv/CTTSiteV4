@@ -1,0 +1,48 @@
+﻿@page
+@model CTTSite.Pages.Store.Order.SpecificUserOrderPageModel
+@{
+}
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-1"></div>
+
+        <div class="col-md-10 text-center">
+    <h1 class="text-center"><b>@Model.User.Identity.Name's Orders</b></h1>
+    <br />
+
+    <table class="table table-bordered table-hover table-dark" width="80%">
+        <thead>
+            <tr class="btn-secondary active">
+                <th>Order Number</th>
+                <th>Total Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (@Model.Orders != null)
+            {
+                foreach (Models.Order order in Model.Orders)
+                {
+                    <tr class="btn-secondary">
+                        <td>
+                            @order.ID
+                        </td>
+                        <td>
+                            £@order.TotalPrice
+                        </td>
+                        <td>
+                            <a class="btn btn-danger" type="button" asp-page="CancelOrderPage" asp-route-id="@order.ID"><i class="fa fa-trash"></i></a>
+                            <a class="btn btn-secondary" type="button" asp-page="SpecificUserOldOrderPage" asp-route-id="@order.ID"><i class="fa fa-info-circle"></i></a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+﻿@page
+@model CTTSite.Pages.Staff.UserCreatedConfirmationModel
+@{
+}
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h3 class="modal-title" style="color: #CCEAF6">User has been created</h3>
+            </div>
+            <div class="modal-body" style="color: #E0F6CC">
+                <p>
+                    <b>
+                        User details are available on the user details page available to admins.
+                    </b>
+                    <br />
+                    Please inform the user of their login details and that their password will be sent to them via email.
+                    The user should change their email after their first login.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <form method="post">
+                    <a class="btn btn-outline" style="color: #CCEAF6; outline-color: #CCEAF6" asp-page="/Admin/ToolsPage">Okay</a>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+    {
+    <script>
+        $(document).ready(function () {
+            $("#myModal").modal({ backdrop: "static" });
+            $("#myModal").modal('show')
+        })
+    </script>
+}

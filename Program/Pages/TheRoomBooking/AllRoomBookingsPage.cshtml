@@ -1,0 +1,67 @@
+﻿@page
+@model CTTSite.Pages.TheRoomBooking.AllRoomBookingsPageModel
+@{
+}
+
+<body style="background-color:#f6d8cc;">
+
+@if (User.Identity != null && User.IsInRole("staff") == true)
+{
+
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-dark border-bottom box-shadow mb-3">
+        <div class="container">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#BookingNavbar"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-md-inline-flex flex-md-row justify-content-start" id="BookingNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-dark text-light" style="padding:2%; margin:2%" asp-page-handler="AllBookings" asp-page="/TheRoomBooking/AllRoomBookingsPage">All Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link btn btn-dark text-light" style="padding:2%; margin:2%" asp-page-handler="MyBookings" asp-page="/TheRoomBooking/AllRoomBookingsPage">My Bookings</a>
+                    </li>
+                    @if (User.Identity != null && User.IsInRole("admin") == true)
+                    {
+                        <li class="nav-item">
+                                <a class="nav-link btn btn-dark text-light" style="padding:2%; margin:2%" asp-page-handler="OldBookings" asp-page="/TheRoomBooking/AllRoomBookingsPage">Old Bookings</a>
+                        </li> 
+                    }  
+                </ul>
+            </div>
+            <div class="navbar-collapse collapse d-md-inline-flex flex-md-row justify-content-end" id="BookingNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                            <a class="nav-link btn btn-dark text-light" style="padding:2%; margin:2%" asp-area="" asp-page="/TheRoomBooking/CreateRoomBookingPage">Create Booking</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br />
+
+    <div class="row">
+        @foreach (Models.RoomBooking roomBooking in Model.RoomBookings)
+        {
+            <div style="width:80%; margin-inline:10%; margin-bottom:2%">
+                    <a class="text-decoration-none text-light" asp-page="/TheRoomBooking/SpecificRoomBookingPage" asp-route-id="@roomBooking.ID">
+                    <div class="card bg-dark">
+                        <div class="card-body">
+                            <h4>@roomBooking.UserEmail</h4>
+                            <h4>@roomBooking.StartDateTime   -   @roomBooking.EndDateTime</h4>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <br />
+        }
+    </div>
+           
+    }
+else
+    {
+        <h1 class="text-center"><b>You are not logged in as staff</b></h1>
+    }
+
+</body>

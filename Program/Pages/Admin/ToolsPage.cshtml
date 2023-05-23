@@ -1,0 +1,61 @@
+﻿@page
+@model CTTSite.Pages.Admin.ToolsPageModel
+@{
+}
+
+<div class="container-fluid text-center text-dark">
+    
+
+<h1>Tools</h1>
+    <br />
+
+    <div class="row" style="margin-left: 5%; margin-right:5%">
+    @if (HttpContext.User.Identity != null && HttpContext.User.IsInRole("admin") == true)
+    {            
+
+            <div class="col-3">
+                <a class="btn btn-dark" asp-area="" asp-page="/Consultation/GetAllConsultaionsPage">Consultations</a>
+                <br />
+                <p>View the list of all future consultation bookings and create new timeslots for consultations.</p>
+            </div>
+
+            <div class="col-3">
+                <a class="btn btn-dark" asp-area="" asp-page="/Store/Order/AllOrderPage">View all orders</a>
+                <br />
+                <p>View the list of all orders and see there status.</p>
+            </div>
+
+            <div class="col-3">
+                <a class="btn btn-dark" asp-area="" asp-page="/Store/Product/AdminProductsPage">Edit Products</a>
+                <br />
+                <p>View the list of all products, see there status & edit them.</p>
+            </div>
+
+            <div class="col-3">
+                <a class="btn btn-dark" asp-area="" asp-page="/Admin/GetAllUsers">See Users</a>
+                <br />
+                <p>View the list of all users, search users, edit and delete users and sort for staff and clients.</p>
+            </div>
+
+            <div class="col-3">
+                <a class="btn btn-dark" asp-area="" asp-page="/Admin/CreateStaffUser">Create Staff User</a>
+                <br />
+                <p>Create new users with staff permissions.</p>
+            </div>
+    }
+        @if (HttpContext.User.Identity != null && HttpContext.User.IsInRole("staff") == true)
+        {
+            <div class="col-3">
+                <a class="btn btn-dark" asp-area="" asp-page="/Staff/CreateClientUser">Create Client User</a>
+                <br />
+                <p>Create new users with client permissions.</p>
+            </div>
+            <div class="col-3">
+                <a class="btn btn-dark" asp-area="" asp-page="/TheRoomBooking/AllRoomBookingsPage">Therapy Room</a>
+                <br />
+                <p>See what times the room is booked, make new bookings and edit bookings.</p>
+            </div>
+        }
+        
+    </div>
+</div>

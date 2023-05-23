@@ -1,0 +1,24 @@
+﻿@page
+@model CTTSite.Pages.Store.Order.OrderConfirmationPageModel
+@{
+}
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-1"></div>
+
+        <div class="col-md-10 text-center">
+    <div class="text-center">
+        <h1>Thank you for your purchase!</h1><br />
+        <h4>Your order number is: @Model.OrderID</h4><br /</h4>
+        <h4>An email have been send to you with your shipping info and order number</h4><br /</h4>
+        <h4>Please come again!</h4><br />
+        <br />
+        <a asp-page="/Store/Order/SpecificUserOldOrderPage" asp-route-id="@Model.OrderID" class="btn btn-dark">View your order</a>
+        <a asp-page="/Index" class="btn btn-outline-dark">Back to Homepage</a>
+    </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>

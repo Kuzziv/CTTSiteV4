@@ -1,0 +1,51 @@
+﻿@page
+@model CTTSite.Pages.User.LogIn.EditUserDetailsModel
+@{
+}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+			<h1>Update User: @Model.user.Email</h1>
+
+			<h3 class="text-danger">
+				@Model.Message
+			</h3>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<form method="post">
+							<div class="form-group" hidden="hidden">
+								<label asp-for="@Model.user.Id" class="control-label"></label>
+								<input asp-for="@Model.user.Id" class="form-control" readonly />
+								<span asp-validation-for="@Model.user.Id" class="text-danger"></span>
+							</div>
+							<div class="form-group">
+								<label asp-for="@Model.Email" class="control-label"></label>
+								<input asp-for="@Model.Email" value="@Model.user.Email" class="form-control" readonly/>
+								<span asp-validation-for="@Model.user.Email" class="text-danger"></span>
+							</div>
+							<div class="form-group">
+								<label asp-for="@Model.Password" class="control-label"></label>
+								<input asp-for="@Model.Password" class="form-control" />
+								<span asp-validation-for="@Model.user.Password" class="text-danger"></span>
+							</div>
+							<div class="form-group">
+								<label asp-for="@Model.PasswordCheck" class="control-label">Confirm Password</label>
+								<input asp-for="@Model.PasswordCheck" class="form-control" />					
+							</div>
+							<p>
+								<div class="form-group">
+									<input type="submit" value="Update" class="btn btn-dark" />
+									<a asp-page="/Index" class="btn btn-outline-dark">Back to Home</a>
+								</div>
+							</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+</div>

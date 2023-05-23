@@ -1,0 +1,73 @@
+﻿@page
+@model CTTSite.Pages.Store.Shipping.CreateShippingPageModel
+@{
+}
+
+<div class="container-fluid text-center">
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 text-center">
+            <div class=" row">
+            <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <h4 class="text-center"><b>Shipping Information</b></h4>
+                <div class="col-md-3"></div>
+                </div>
+        <br />
+    </div>
+
+    <form method="post">
+        <div class="form-row">
+            <div class=" row">
+                    <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="@Model.ShippingInfo.FirstName" class="control-lable">First Name</label>
+                    <input asp-for="@Model.ShippingInfo.FirstName" class="form-control" />
+                    <span asp-validation-for="@Model.ShippingInfo.FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.ShippingInfo.LastName" class="control-lable">Last Name</label>
+                    <input asp-for="@Model.ShippingInfo.LastName" class="form-control" />
+                    <span asp-validation-for="@Model.ShippingInfo.LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.ShippingInfo.PhoneNumber" class="control-lable">Phone number</label>
+                    <input asp-for="@Model.ShippingInfo.PhoneNumber" class="form-control" />
+                    <span asp-validation-for="@Model.ShippingInfo.PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.ShippingInfo.Address" class="control-lable">Address</label>
+                    <input asp-for="@Model.ShippingInfo.Address" class="form-control" />
+                    <span asp-validation-for="@Model.ShippingInfo.Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.ShippingInfo.County" class="control-lable">County</label>
+                    <input asp-for="@Model.ShippingInfo.County" class="form-control" />
+                    <span asp-validation-for="@Model.ShippingInfo.County" class="text-danger"></span>
+                </div>                          
+                <div class="form-group">
+                    <label asp-for="@Model.ShippingInfo.City" class="control-lable">City</label>
+                    <input asp-for="@Model.ShippingInfo.City" class="form-control" />
+                    <span asp-validation-for="@Model.ShippingInfo.City" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.ShippingInfo.PostCode" class="control-lable">PostCode</label>
+                    <input asp-for="@Model.ShippingInfo.PostCode" class="form-control" />
+                    <span asp-validation-for="@Model.ShippingInfo.PostCode" class="text-danger"></span>
+                </div>
+                        <div class="form-group">
+                            <br />
+                            <input type="submit" value="Continue" class="btn btn-dark" asp-page-handler="CreateOrder" />
+                            <a asp-page="/Store/Cart/SpecificUserCartPage" class="btn btn-outline-dark">Back to Cart</a>
+                        </div>
+            </div>
+                    <div class="col-md-3"></div> 
+                    </div>
+        </div>
+    </form>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+</div>

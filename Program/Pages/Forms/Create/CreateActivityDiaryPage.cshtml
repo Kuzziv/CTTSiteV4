@@ -1,0 +1,636 @@
+﻿@page
+@model CTTSite.Pages.Forms.CreateActivityDiaryPageModel
+@{
+}
+
+<div class="container-fluid">
+
+<div class="row">
+<div class="col-md-1"></div>
+
+        <div class="col-md-10 text-center">
+            
+    <form method="post">
+                <h1 >Create Activity Diary</h1>
+        <div hidden="hidden">
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.UserEmail" class="control-lable"></label>
+            <input asp-for="@Model.formActivityDiary.UserEmail" class="form-control" value="@HttpContext.User.Identity.Name" readonly />
+        </div>
+
+        <h3>Day 1</h3>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day1" class="control-lable">Day 1 (Weekday, dd/mm/yyyy)</label>
+            <input asp-for="@Model.formActivityDiary.Day1" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day1_0600" class="control-lable">06:00</label>
+            <input asp-for="@Model.formActivityDiary.Day1_0600" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day1_0700" class="control-lable">07:00</label>
+            <input asp-for="@Model.formActivityDiary.Day1_0700" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day1_0800" class="control-lable">08:00</label>
+            <input asp-for="@Model.formActivityDiary.Day1_0800" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day1_0900" class="control-lable">09:00</label>
+            <input asp-for="@Model.formActivityDiary.Day1_0900" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day1_1000" class="control-lable">10:00</label>
+            <input asp-for="@Model.formActivityDiary.Day1_1000" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day1_1100" class="control-lable">11:00</label>
+            <input asp-for="@Model.formActivityDiary.Day1_1100" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day1_1200" class="control-lable">12:00</label>
+            <input asp-for="@Model.formActivityDiary.Day1_1200" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day1_1300" class="control-lable">13:00</label>
+            <input asp-for="@Model.formActivityDiary.Day1_1300" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day1_1400" class="control-lable">14:00</label>
+            <input asp-for="@Model.formActivityDiary.Day1_1400" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day1_1500" class="control-lable">15:00</label>
+            <input asp-for="@Model.formActivityDiary.Day1_1500" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day1_1600" class="control-lable">16:00</label>
+            <input asp-for="@Model.formActivityDiary.Day1_1600" class="form-control" value="Please Fill Out Before Submission"/>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day1_1700" class="control-lable">17:00</label>
+            <input asp-for="@Model.formActivityDiary.Day1_1700" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day1_1800" class="control-lable">18:00</label>
+            <input asp-for="@Model.formActivityDiary.Day1_1800" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day1_1900" class="control-lable">19:00</label>
+            <input asp-for="@Model.formActivityDiary.Day1_1900" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day1_2000" class="control-lable">20:00</label>
+            <input asp-for="@Model.formActivityDiary.Day1_2000" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day1_2100" class="control-lable">21:00</label>
+            <input asp-for="@Model.formActivityDiary.Day1_2100" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day1_2200" class="control-lable">22:00</label>
+            <input asp-for="@Model.formActivityDiary.Day1_2200" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day1_2300" class="control-lable">23:00</label>
+            <input asp-for="@Model.formActivityDiary.Day1_2300" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day1_2400" class="control-lable">24:00</label>
+            <input asp-for="@Model.formActivityDiary.Day1_2400" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+       
+
+        <h3>Day 2</h3>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day2" class="control-lable">Day 2 (Weekday, dd/mm/yyyy)</label>
+            <input asp-for="@Model.formActivityDiary.Day2" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day2_0600" class="control-lable">06:00</label>
+            <input asp-for="@Model.formActivityDiary.Day2_0600" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day2_0700" class="control-lable">07:00</label>
+            <input asp-for="@Model.formActivityDiary.Day2_0700" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day2_0800" class="control-lable">08:00</label>
+            <input asp-for="@Model.formActivityDiary.Day2_0800" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day2_0900" class="control-lable">09:00</label>
+            <input asp-for="@Model.formActivityDiary.Day2_0900" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day2_1000" class="control-lable">10:00</label>
+            <input asp-for="@Model.formActivityDiary.Day2_1000" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day2_1100" class="control-lable">11:00</label>
+            <input asp-for="@Model.formActivityDiary.Day2_1100" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day2_1200" class="control-lable">12:00</label>
+            <input asp-for="@Model.formActivityDiary.Day2_1200" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day2_1300" class="control-lable">13:00</label>
+            <input asp-for="@Model.formActivityDiary.Day2_1300" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day2_1400" class="control-lable">14:00</label>
+            <input asp-for="@Model.formActivityDiary.Day2_1400" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day2_1500" class="control-lable">15:00</label>
+            <input asp-for="@Model.formActivityDiary.Day2_1500" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day2_1600" class="control-lable">16:00</label>
+            <input asp-for="@Model.formActivityDiary.Day2_1600" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day2_1700" class="control-lable">17:00</label>
+            <input asp-for="@Model.formActivityDiary.Day2_1700" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day2_1800" class="control-lable">18:00</label>
+            <input asp-for="@Model.formActivityDiary.Day2_1800" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day2_1900" class="control-lable">19:00</label>
+            <input asp-for="@Model.formActivityDiary.Day2_1900" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day2_2000" class="control-lable">20:00</label>
+            <input asp-for="@Model.formActivityDiary.Day2_2000" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day2_2100" class="control-lable">21:00</label>
+            <input asp-for="@Model.formActivityDiary.Day2_2100" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day2_2200" class="control-lable">22:00</label>
+            <input asp-for="@Model.formActivityDiary.Day2_2200" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day2_2300" class="control-lable">23:00</label>
+            <input asp-for="@Model.formActivityDiary.Day2_2300" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day2_2400" class="control-lable">24:00</label>
+            <input asp-for="@Model.formActivityDiary.Day2_2400" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+
+
+        <h3>Day 3</h3>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day3" class="control-lable">Day 3 (Day, dd/mm/yyyy)</label>
+            <input asp-for="@Model.formActivityDiary.Day3" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day3_0600" class="control-lable">06:00</label>
+            <input asp-for="@Model.formActivityDiary.Day3_0600" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day3_0700" class="control-lable">07:00</label>
+            <input asp-for="@Model.formActivityDiary.Day3_0700" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day3_0800" class="control-lable">08:00</label>
+            <input asp-for="@Model.formActivityDiary.Day3_0800" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day3_0900" class="control-lable">09:00</label>
+            <input asp-for="@Model.formActivityDiary.Day3_0900" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day3_1000" class="control-lable">10:00</label>
+            <input asp-for="@Model.formActivityDiary.Day3_1000" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day3_1100" class="control-lable">11:00</label>
+            <input asp-for="@Model.formActivityDiary.Day3_1100" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day3_1200" class="control-lable">12:00</label>
+            <input asp-for="@Model.formActivityDiary.Day3_1200" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day3_1300" class="control-lable">13:00</label>
+            <input asp-for="@Model.formActivityDiary.Day3_1300" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day3_1400" class="control-lable">14:00</label>
+            <input asp-for="@Model.formActivityDiary.Day3_1400" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day3_1500" class="control-lable">15:00</label>
+            <input asp-for="@Model.formActivityDiary.Day3_1500" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day3_1600" class="control-lable">16:00</label>
+            <input asp-for="@Model.formActivityDiary.Day3_1600" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day3_1700" class="control-lable">17:00</label>
+            <input asp-for="@Model.formActivityDiary.Day3_1700" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day3_1800" class="control-lable">18:00</label>
+            <input asp-for="@Model.formActivityDiary.Day3_1800" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day3_1900" class="control-lable">19:00</label>
+            <input asp-for="@Model.formActivityDiary.Day3_1900" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day3_2000" class="control-lable">20:00</label>
+            <input asp-for="@Model.formActivityDiary.Day3_2000" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day3_2100" class="control-lable">21:00</label>
+            <input asp-for="@Model.formActivityDiary.Day3_2100" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day3_2200" class="control-lable">22:00</label>
+            <input asp-for="@Model.formActivityDiary.Day3_2200" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day3_2300" class="control-lable">23:00</label>
+            <input asp-for="@Model.formActivityDiary.Day3_2300" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day3_2400" class="control-lable">24:00</label>
+            <input asp-for="@Model.formActivityDiary.Day3_2400" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+
+
+        <h3>Day 4</h3>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day4" class="control-lable">Day 4 (Day, dd/mm/yyyy)</label>
+            <input asp-for="@Model.formActivityDiary.Day4" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day4_0600" class="control-lable">06:00</label>
+            <input asp-for="@Model.formActivityDiary.Day4_0600" class="form-control" value="Please Fill Out Before Submission"  />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day4_0700" class="control-lable">07:00</label>
+            <input asp-for="@Model.formActivityDiary.Day4_0700" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day4_0800" class="control-lable">08:00</label>
+            <input asp-for="@Model.formActivityDiary.Day4_0800" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day4_0900" class="control-lable">09:00</label>
+            <input asp-for="@Model.formActivityDiary.Day4_0900" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day4_1000" class="control-lable">10:00</label>
+            <input asp-for="@Model.formActivityDiary.Day4_1000" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day4_1100" class="control-lable">11:00</label>
+            <input asp-for="@Model.formActivityDiary.Day4_1100" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day4_1200" class="control-lable">12:00</label>
+            <input asp-for="@Model.formActivityDiary.Day4_1200" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day4_1300" class="control-lable">13:00</label>
+            <input asp-for="@Model.formActivityDiary.Day4_1300" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day4_1400" class="control-lable">14:00</label>
+            <input asp-for="@Model.formActivityDiary.Day4_1400" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day4_1500" class="control-lable">15:00</label>
+            <input asp-for="@Model.formActivityDiary.Day4_1500" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day4_1600" class="control-lable">16:00</label>
+            <input asp-for="@Model.formActivityDiary.Day4_1600" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day4_1700" class="control-lable">17:00</label>
+            <input asp-for="@Model.formActivityDiary.Day4_1700" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day4_1800" class="control-lable">18:00</label>
+            <input asp-for="@Model.formActivityDiary.Day4_1800" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day4_1900" class="control-lable">19:00</label>
+            <input asp-for="@Model.formActivityDiary.Day4_1900" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day4_2000" class="control-lable">20:00</label>
+            <input asp-for="@Model.formActivityDiary.Day4_2000" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day4_2100" class="control-lable">21:00</label>
+            <input asp-for="@Model.formActivityDiary.Day4_2100" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day4_2200" class="control-lable">22:00</label>
+            <input asp-for="@Model.formActivityDiary.Day4_2200" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day4_2300" class="control-lable">23:00</label>
+            <input asp-for="@Model.formActivityDiary.Day4_2300" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day4_2400" class="control-lable">24:00</label>
+            <input asp-for="@Model.formActivityDiary.Day4_2400" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+
+
+
+        <h3>Day 5</h3>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day5" class="control-lable">Day 5 (Day, dd/mm/yyyy)</label>
+            <input asp-for="@Model.formActivityDiary.Day5" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day5_0600" class="control-lable">06:00</label>
+            <input asp-for="@Model.formActivityDiary.Day5_0600" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day5_0700" class="control-lable">07:00</label>
+            <input asp-for="@Model.formActivityDiary.Day5_0700" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day5_0800" class="control-lable">08:00</label>
+            <input asp-for="@Model.formActivityDiary.Day5_0800" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day5_0900" class="control-lable">09:00</label>
+            <input asp-for="@Model.formActivityDiary.Day5_0900" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day5_1000" class="control-lable">10:00</label>
+            <input asp-for="@Model.formActivityDiary.Day5_1000" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day5_1100" class="control-lable">11:00</label>
+            <input asp-for="@Model.formActivityDiary.Day5_1100" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day5_1200" class="control-lable">12:00</label>
+            <input asp-for="@Model.formActivityDiary.Day5_1200" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day5_1300" class="control-lable">13:00</label>
+            <input asp-for="@Model.formActivityDiary.Day5_1300" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day5_1400" class="control-lable">14:00</label>
+            <input asp-for="@Model.formActivityDiary.Day5_1400" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day5_1500" class="control-lable">15:00</label>
+            <input asp-for="@Model.formActivityDiary.Day5_1500" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day5_1600" class="control-lable">16:00</label>
+            <input asp-for="@Model.formActivityDiary.Day5_1600" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day5_1700" class="control-lable">17:00</label>
+            <input asp-for="@Model.formActivityDiary.Day5_1700" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day5_1800" class="control-lable">18:00</label>
+            <input asp-for="@Model.formActivityDiary.Day5_1800" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day5_1900" class="control-lable">19:00</label>
+            <input asp-for="@Model.formActivityDiary.Day5_1900" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day5_2000" class="control-lable">20:00</label>
+            <input asp-for="@Model.formActivityDiary.Day5_2000" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day5_2100" class="control-lable">21:00</label>
+            <input asp-for="@Model.formActivityDiary.Day5_2100" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day5_2200" class="control-lable">22:00</label>
+            <input asp-for="@Model.formActivityDiary.Day5_2200" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day5_2300" class="control-lable">23:00</label>
+            <input asp-for="@Model.formActivityDiary.Day5_2300" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day5_2400" class="control-lable">24:00</label>
+            <input asp-for="@Model.formActivityDiary.Day5_2400" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+
+
+
+        <h3>Day 6</h3>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day6" class="control-lable">Day 6 (Day, dd/mm/yyyy)</label>
+            <input asp-for="@Model.formActivityDiary.Day6" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day6_0600" class="control-lable">06:00</label>
+            <input asp-for="@Model.formActivityDiary.Day6_0600" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day6_0700" class="control-lable">07:00</label>
+            <input asp-for="@Model.formActivityDiary.Day6_0700" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day6_0800" class="control-lable">08:00</label>
+            <input asp-for="@Model.formActivityDiary.Day6_0800" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day6_0900" class="control-lable">09:00</label>
+            <input asp-for="@Model.formActivityDiary.Day6_0900" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day6_1000" class="control-lable">10:00</label>
+            <input asp-for="@Model.formActivityDiary.Day6_1000" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day6_1100" class="control-lable">11:00</label>
+            <input asp-for="@Model.formActivityDiary.Day6_1100" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day6_1200" class="control-lable">12:00</label>
+            <input asp-for="@Model.formActivityDiary.Day6_1200" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day6_1300" class="control-lable">13:00</label>
+            <input asp-for="@Model.formActivityDiary.Day6_1300" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day6_1400" class="control-lable">14:00</label>
+            <input asp-for="@Model.formActivityDiary.Day6_1400" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day6_1500" class="control-lable">15:00</label>
+            <input asp-for="@Model.formActivityDiary.Day6_1500" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day6_1600" class="control-lable">16:00</label>
+            <input asp-for="@Model.formActivityDiary.Day6_1600" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day6_1700" class="control-lable">17:00</label>
+            <input asp-for="@Model.formActivityDiary.Day6_1700" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day6_1800" class="control-lable">18:00</label>
+            <input asp-for="@Model.formActivityDiary.Day6_1800" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day6_1900" class="control-lable">19:00</label>
+            <input asp-for="@Model.formActivityDiary.Day6_1900" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day6_2000" class="control-lable">20:00</label>
+            <input asp-for="@Model.formActivityDiary.Day6_2000" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day6_2100" class="control-lable">21:00</label>
+            <input asp-for="@Model.formActivityDiary.Day6_2100" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day6_2200" class="control-lable">22:00</label>
+            <input asp-for="@Model.formActivityDiary.Day6_2200" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day6_2300" class="control-lable">23:00</label>
+            <input asp-for="@Model.formActivityDiary.Day6_2300" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day6_2400" class="control-lable">24:00</label>
+            <input asp-for="@Model.formActivityDiary.Day6_2400" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+
+
+        <h3>Day 7</h3>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day7" class="control-lable">Day 7 (Day, dd/mm/yyyy)</label>
+            <input asp-for="@Model.formActivityDiary.Day7" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day7_0600" class="control-lable">06:00</label>
+            <input asp-for="@Model.formActivityDiary.Day7_0600" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day7_0700" class="control-lable">07:00</label>
+            <input asp-for="@Model.formActivityDiary.Day7_0700" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day7_0800" class="control-lable">08:00</label>
+            <input asp-for="@Model.formActivityDiary.Day7_0800" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day7_0900" class="control-lable">09:00</label>
+            <input asp-for="@Model.formActivityDiary.Day7_0900" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day7_1000" class="control-lable">10:00</label>
+            <input asp-for="@Model.formActivityDiary.Day7_1000" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day7_1100" class="control-lable">11:00</label>
+            <input asp-for="@Model.formActivityDiary.Day7_1100" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day7_1200" class="control-lable">12:00</label>
+            <input asp-for="@Model.formActivityDiary.Day7_1200" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day7_1300" class="control-lable">13:00</label>
+            <input asp-for="@Model.formActivityDiary.Day7_1300" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day7_1400" class="control-lable">14:00</label>
+            <input asp-for="@Model.formActivityDiary.Day7_1400" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day7_1500" class="control-lable">15:00</label>
+            <input asp-for="@Model.formActivityDiary.Day7_1500" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day7_1600" class="control-lable">16:00</label>
+            <input asp-for="@Model.formActivityDiary.Day7_1600" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day7_1700" class="control-lable">17:00</label>
+            <input asp-for="@Model.formActivityDiary.Day7_1700" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day7_1800" class="control-lable">18:00</label>
+            <input asp-for="@Model.formActivityDiary.Day7_1800" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day7_1900" class="control-lable">19:00</label>
+            <input asp-for="@Model.formActivityDiary.Day7_1900" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day7_2000" class="control-lable">20:00</label>
+            <input asp-for="@Model.formActivityDiary.Day7_2000" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day7_2100" class="control-lable">21:00</label>
+            <input asp-for="@Model.formActivityDiary.Day7_2100" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day7_2200" class="control-lable">22:00</label>
+            <input asp-for="@Model.formActivityDiary.Day7_2200" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day7_2300" class="control-lable">23:00</label>
+            <input asp-for="@Model.formActivityDiary.Day7_2300" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityDiary.Day7_2400" class="control-lable">24:00</label>
+            <input asp-for="@Model.formActivityDiary.Day7_2400" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+</div>
+
+        <div class="input-group mb-3">  
+            <h5 class="container-fluid">
+                This is Step One in a technique called Behavioural Activation in CBT.
+                Use this diary to keep a note of your activities for a week. You can then review how you're spending your time and create a list of different activities (Step Two), then start to structure your week and slowly add some new activities and review your mood (Step Three).<br /><br />
+                When noting down your activities in the Baseline Activity Diary, try to remind yourself every couple of hours. You only need to write one or two words to explain what you were doing - e.g. shower, bed, work.<br /><br />
+                When reviewing your Baseline Activity Diary, look for a good mix of activites which fit into these different categories:<br /><br />
+
+                Pleasurable<br /><br />
+
+                Exercise<br /><br />
+
+                Achievement<br /><br />
+
+                Social<br /><br />
+            </h5>
+            <div class=" container-fluid">
+                <div class="row">
+                    <div class="col-mb-6">
+            <p>After creating the form, you will be able to find it on the "Forms" page under "My Forms"</p>
+                    </div>
+                    <div class="col-md-6">
+            <input type="submit" asp-page-handler="SaveForm"  value="Create new Form" class="btn btn-dark" />
+                                <a class="btn btn-outline-dark" type="button" href="/Forms/FormsMenuPage">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+        <div class="col-md-1"></div>
+</div>
+</div>

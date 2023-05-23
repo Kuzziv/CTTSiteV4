@@ -1,0 +1,60 @@
+﻿@page
+@model CTTSite.Pages.Forms.CreateActivityListPageModel
+@{
+}
+<div class="container-fluid">
+
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 text-center">
+            
+    <form method="post">
+                <h1 >Create Activity List</h1>
+        <div hidden="hidden">
+        <div class="form-group">
+            <label asp-for="@Model.formActivityList.UserEmail" class="control-lable"></label>
+            <input asp-for="@Model.formActivityList.UserEmail" class="form-control" value="@HttpContext.User.Identity.Name" readonly />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="@Model.formActivityList.Pleasure " class="control-lable">Pleasure</label>
+            <input asp-for="@Model.formActivityList.Pleasure" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityList.Exercise" class="control-lable">Exercise</label>
+            <input asp-for="@Model.formActivityList.Exercise" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityList.Achievement" class="control-lable">Achievement</label>
+            <input asp-for="@Model.formActivityList.Achievement" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.formActivityList.Social" class="control-lable">Social</label>
+            <input asp-for="@Model.formActivityList.Social" class="form-control" value="Please Fill Out Before Submission" />
+        </div>
+        </div>
+
+        <div class="input-group mb-3">
+            <h5 class="container-fluid">
+                Use this activity list to identify different activities to add into your week.<br /><br />
+                This sheet is used as part of Behavioural Activation in CBT to increase your activities when you struggle with motivation.<br /><br />
+                Don't rule anything out, think of lots of ideas, then add them gradually into your week!<br /><br />
+            </h5>
+            <div class=" container-fluid">
+                <div class="row">
+                    <div class="col-mb-6">
+            <p>After creating the form, you will be able to find it on the "Forms" page under "My Forms"</p>
+                    </div>
+                    <div class="col-md-6">
+           <input type="submit" asp-page-handler="SaveForm" value="Create new Form" class="btn btn-dark" />
+                                <a class="btn btn-outline-dark" type="button" href="/Forms/FormsMenuPage">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</form>
+</div>
+    <div class="col-md-1"></div>
+</div>
+</div>

@@ -1,0 +1,88 @@
+﻿@page "{id:int}"
+@model CTTSite.Pages.Store.Shipping.EditShippingPageModel
+@{
+}
+<div class="container-fluid text-center">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 text-center">
+
+    <form method="post">
+                
+        <div class="form-row">
+           
+               
+                    <h1 class="text-center"><b>Edit Shipping Information</b></h1>
+                    <br />
+                    <div class="form-group" hidden>
+                        <label asp-for="@Model.ShippingInfo.ID" class="control-lable"></label>
+                        <input asp-for="@Model.ShippingInfo.ID" type="hidden" class="form-control" />
+                    </div>
+                    <div class="form-group" hidden>
+                          <label asp-for="@Model.ShippingInfo.UserID" class="control-lable"></label>
+                          <input asp-for="@Model.ShippingInfo.UserID" type="hidden" class="form-control" />
+                    </div>
+                    <div class="form-group" hidden>
+                        <label asp-for="@Model.ShippingInfo.OrderID" class="control-lable"></label>
+                        <input asp-for="@Model.ShippingInfo.OrderID" type="hidden" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.ShippingInfo.FirstName" class="control-lable">First Name</label>
+                        <input asp-for="@Model.ShippingInfo.FirstName" class="form-control" />
+                        <span asp-validation-for="@Model.ShippingInfo.FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.ShippingInfo.LastName" class="control-lable">Last Name</label>
+                        <input asp-for="@Model.ShippingInfo.LastName" class="form-control" />
+                        <span asp-validation-for="@Model.ShippingInfo.LastName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.ShippingInfo.Address" class="control-lable">Address</label>
+                        <input asp-for="@Model.ShippingInfo.Address" class="form-control" />
+                        <span asp-validation-for="@Model.ShippingInfo.Address" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.ShippingInfo.City" class="control-lable">City</label>
+                        <input asp-for="@Model.ShippingInfo.City" class="form-control" />
+                        <span asp-validation-for="@Model.ShippingInfo.City" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.ShippingInfo.PostCode" class="control-lable">Post Code</label>
+                        <input asp-for="@Model.ShippingInfo.PostCode" class="form-control" />
+                        <span asp-validation-for="@Model.ShippingInfo.PostCode" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.ShippingInfo.County" class="control-lable">County</label>
+                        <input asp-for="@Model.ShippingInfo.County" class="form-control" />
+                        <span asp-validation-for="@Model.ShippingInfo.County" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.ShippingInfo.PhoneNumber" class="control-lable">Phone Number</label>
+                        <input asp-for="@Model.ShippingInfo.PhoneNumber" class="form-control" />
+                        <span asp-validation-for="@Model.ShippingInfo.PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.ShippingInfo.SubmissionDate" class="control-lable">Subminsion Date</label>
+                        <input asp-for="@Model.ShippingInfo.SubmissionDate" class="form-control" readonly="@(true)"  />
+                    </div>
+
+                 <br />
+                        <div class="form-group">
+                            <input type="submit" value="Update" class="btn btn-dark" />
+                            <a asp-page="/Store/Order/AllOrderPage" class="btn btn-outline-dark">Back</a>
+                        </div>
+                   
+
+            
+
+               
+           </div>
+                    
+           
+        
+    </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+

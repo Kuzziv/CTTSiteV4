@@ -1,0 +1,80 @@
+﻿@page
+@model CTTSite.Pages.Forms.UpdateHotCrossBunPageModel
+@{
+}
+
+<div class="col-md-12 text-center" style="margin-bottom:4%">
+    <h1 class="text-center">Hot Cross Bun</h1>
+    <h3 class="text-danger text-center"> @Model.message</h3>
+    <form method="post">
+        <input type="submit" asp-page-handler="SaveForm" value="Save Form" class="btn btn-dark text-center" />
+    
+        <div class="container-fluid">
+            <div class="row">
+        <div class="form-group">
+            <label asp-for="@Model.formHotCrossBun.UserEmail" class="control-lable"></label>
+            <input asp-for="@Model.formHotCrossBun.UserEmail" class="form-control" value="@HttpContext.User.Identity.Name" readonly />
+        </div>
+            </div>
+        
+            <br />
+
+            <div class="row">
+                <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="@Model.formHotCrossBun.Trigger " class="control-lable">Trigger</label>
+            <input asp-for="@Model.formHotCrossBun.Trigger" class="form-control" value="@Model.formHotCrossBun.Trigger" />
+        </div>
+                </div>
+
+                    <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="@Model.formHotCrossBun.Thoughts" class="control-lable">Thoughts</label>
+            <input asp-for="@Model.formHotCrossBun.Thoughts" class="form-control" value="@Model.formHotCrossBun.Thoughts" />
+        </div>
+                </div>
+            </div>
+
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="@Model.formHotCrossBun.Emotions" class="control-lable">Emotions</label>
+            <input asp-for="@Model.formHotCrossBun.Emotions" class="form-control" value="@Model.formHotCrossBun.Emotions" />
+        </div>
+                </div>
+
+                                <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="@Model.formHotCrossBun.Behaviours" class="control-lable">Behaviours</label>
+            <input asp-for="@Model.formHotCrossBun.Behaviours" class="form-control" value="@Model.formHotCrossBun.Behaviours" />
+        </div>
+                </div>
+            </div>
+
+            <br />
+            <div class="row">
+                <div class="input-group col-mb-12 text-center">
+                    <p>Please only submit this form when all fields are filled out.</p>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="input-group col-md-12">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-3 text-center">
+                        <input type="submit" asp-page-handler="SaveForm" value="Save Form" class="btn btn-dark" />
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-3 text-center">
+                        <input type="submit" asp-page-handler="SubmitForm" value="Submit Form" class="btn btn-danger" />
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+
+
+        </div>
+    </form>
+</div>

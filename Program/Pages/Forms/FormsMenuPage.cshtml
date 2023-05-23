@@ -1,0 +1,175 @@
+﻿@page
+@model CTTSite.Pages.Forms.FormsMenuPageModel
+@{
+}
+
+<body style="background-color:#f6d8cc; margin-bottom: 4%">
+        <div class="container-fluid">
+            <div class="row">
+             <div class="col-md-1"></div>
+                <div class="col-md-5">
+    
+            <h1 style=" padding-block:5%; padding-inline:4%" class="text-dark">
+                    <b>Forms</b>
+        </h1>
+            <h4 class="text-dark">
+                Please select a form to complete. <br />These forms are used to help your therapist understand your current situation and to help you track your progress.
+            </h4>   
+            <h5 class="text-danger">Always remember to save your form before exiting the form page. Otherwise your new information will be lost.</h5>
+        </div>
+            <div class="col-md-1"></div>
+<div class="col-md-4">
+                <img src="~/photos/jenniehotcrossbun.jpg" class="responsive" />
+        </div>
+<div class="col-md-1"></div>
+</div>
+    
+
+    <div class="row" style="margin: 4%">
+@if ((Model.formActivityDiary != null) || (Model.formActivityList != null) || (Model.formActivitySchedule != null) || (Model.formHotCrossBun != null) || (Model.formSleepDiary != null))
+{
+    <h3 class="text-dark">My Forms</h3>
+    <p class="text-dark"> Forms in the 'My Forms' section are forms that you have already created and can be updated and saved, or submitted if they are complete. This is done by clicking on the icon for the form you wish to continue filling out.</p>
+}
+
+@if(Model.formActivityDiary != null)
+{
+    <div style="width:20%">
+            <a class="text-decoration-none text-white" asp-page="/Forms/Update/UpdateActivityDiaryPage">
+                    <div class="card align-content-center bg-dark">
+                <img src="~/formimages/activitydiary.jpg" class="card-img-top img-fluid" alt="IMG.activitydiary" />
+                        <div class="card-body text-center">
+                                <h4 class="card-title" style="font-size:1.5vw; color: #E0F6CC"><b>Activity Diary</b></h4>
+                </div>
+            </div>
+        </a>
+    </div>
+}
+@if (Model.formActivityList != null)
+{
+    <div style="width:20%">
+            <a class="text-decoration-none  text-white" asp-page="/Forms/Update/UpdateActivityListPage">
+                    <div class="card align-content-center bg-dark">
+                <img src="~/formimages/activitylist.jpg" alt="IMG.activitylist" class="card-img-top img-fluid" />
+                        <div class="card-body text-center">
+                                <h4 class="card-title" style="font-size:1.5vw; color: #E0F6CC"><b>Activity List</b></h4>
+                </div>
+            </div>
+        </a>
+    </div>
+}
+@if (Model.formActivitySchedule != null)
+{
+    <div style="width:20%">
+            <a class="text-decoration-none  text-white" asp-page="/Forms/Update/UpdateActivitySchedulePage">
+                    <div class="card align-content-center bg-dark" >
+                <img src="~/formimages/activityschedule.jpg" alt="IMG.activityschedule" class="card-img-top img-fluid" />
+                        <div class="card-body text-center">
+                                <h4 class="card-title" style="font-size:1.5vw; color: #E0F6CC"><b>Activity Schedule</b></h4>
+                </div>
+            </div>
+        </a>
+    </div>
+}
+@if (Model.formHotCrossBun != null)
+{
+    <div style="width:20%">
+            <a class="text-decoration-none  text-white" asp-page="/Forms/Update/UpdateHotCrossBunPage">
+                    <div class="card align-content-center bg-dark" >
+                <img src="~/formimages/hotcrossbun.jpg" alt="IMG.hotcrossbun" class="card-img-top img-fluid" />
+                        <div class="card-body text-center">
+                                <h4 class="card-title" style="font-size:1.5vw; color: #E0F6CC"><b>Hot Cross Bun</b></h4>
+                </div>
+            </div>
+        </a>
+    </div>
+}
+@if (Model.formSleepDiary != null)
+{
+    <div style="width:20%">
+            <a class="text-decoration-none  text-white" asp-page="/Forms/Update/UpdateSleepDiaryPage">
+                    <div class="card align-content-center bg-dark" >
+                <img src="~/formimages/sleepdiary.jpg" alt="IMG.sleepdiary" class="card-img-top img-fluid" />
+                        <div class="card-body text-center">
+                                <h4 class="card-title" style="font-size:1.5vw; color: #E0F6CC"><b>Sleep Diary</b></h4>
+                </div>
+            </div>
+        </a>
+    </div>
+}
+</div>
+<div class="row" style="margin: 4%">
+@if ((Model.formActivityDiary == null) || (Model.formActivityList == null) || (Model.formActivitySchedule == null) || (Model.formHotCrossBun == null) || (Model.formSleepDiary == null))
+{
+    <h3 class="text-dark">Create New Forms</h3>
+                <p>Forms in the 'New Forms' section are forms that you have not yet created and can be created and saved by clicking on the icon for the form you wish to fill out.</p>
+}
+    
+@if (Model.formActivityDiary == null)
+{
+    <div style="width:20%">
+            <a class="text-decoration-none  text-white" asp-page="/Forms/Create/CreateActivityDiaryPage">
+                    <div class="card align-content-center bg-dark">
+                <img src="~/formimages/activitydiary.jpg" class="card-img-top img-fluid" alt="IMG.activitydiary" />
+                        <div class="card-body text-center">
+                                <h4 class="card-title" style="font-size:1.5vw; color: #E0F6CC"><b>Activity Diary</b></h4>
+                </div>
+            </div>
+        </a>
+    </div>
+}
+@if (Model.formActivityList == null)
+{
+    <div style="width:20%">
+            <a class="text-decoration-none  text-white" asp-page="/Forms/Create/CreateActivityListPage">
+                    <div class="card align-content-center bg-dark">
+                <img src="~/formimages/activitylist.jpg" alt="IMG.activitylist" class="card-img-top img-fluid" />
+                        <div class="card-body text-center">
+                                <h4 class="card-title" style="font-size:1.5vw; color: #E0F6CC"><b>Activity List</b></h4>
+                </div>
+            </div>
+        </a>
+    </div>
+}
+@if (Model.formActivitySchedule == null)
+{
+    <div style="width:20%">
+            <a class="text-decoration-none  text-white" asp-page="/Forms/Create/CreateActivitySchedulePage">
+                    <div class="card align-content-center bg-dark">
+                <img src="~/formimages/activityschedule.jpg" alt="IMG.activityschedule" class="card-img-top img-fluid" />
+                        <div class="card-body text-center">
+                                <h4 class="card-title" style="font-size:1.5vw; color: #E0F6CC"><b>Activity Schedule</b></h4>
+                        </div>
+            </div>
+        </a>
+    </div>
+}
+@if (Model.formHotCrossBun == null)
+{
+    <div style="width:20%">
+            <a class="text-decoration-none  text-white" asp-page="/Forms/Create/CreateHotCrossBunPage">
+                    <div class="card align-content-center bg-dark">
+                <img src="~/formimages/hotcrossbun.jpg" alt="IMG.hotcrossbun" class="card-img-top img-fluid" />
+                        <div class="card-body text-center">
+                                <h4 class="card-title" style="font-size:1.5vw; color: #E0F6CC"><b>Hot Cross Bun</b></h4>
+                </div>
+            </div>
+        </a>
+    </div>
+}
+@if (Model.formSleepDiary == null)
+{
+    <div style="width:20%">
+            <a class="text-decoration-none  text-white" asp-page="/Forms/Create/CreateSleepDiaryPage">
+                    <div class="card align-content-center bg-dark">
+                <img src="~/formimages/sleepdiary.jpg" alt="IMG.sleepdiary" class="card-img-top img-fluid" />
+                        <div class="card-body text-center ">
+                                <h4 class="card-title" style="font-size:1.5vw; color: #E0F6CC"><b>Sleep Diary</b></h4>
+                </div>
+            </div>
+        </a>
+    </div>
+}
+</div>
+    </div>
+</body>

@@ -1,0 +1,101 @@
+﻿@page
+@model CTTSite.Pages.Staff.Admin.GetAllUsersModel
+@{
+}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+
+			<h1>Users</h1>
+
+			<div class="row">
+				<div class="col-7"><h5>Search Name</h5></div>	
+				<div class="col-1"></div>
+			</div>
+
+			<div class="row">
+				<div class="col-4">
+					<form method="post" class="form-inline">
+						<div class="input-group mb-3">
+							<input asp-for="SearchString" class="form-control mr-1" placeholder="Enter User Email" />
+							<input type="submit" asp-page-handler="EmailSearch" value="Search" class="btn btn-dark" />			
+						</div>
+					</form>
+					<p>
+						<a class="btn btn-dark" title="See Staff Users" asp-page-handler="Staff">See Staff Users</a>
+						<a class="btn btn-dark" title="See Client Users" asp-page-handler="Clients">See Client Users</a>
+						<a class="btn btn-dark" title="See All Users" asp-page-handler="All">See All</a>
+					</p>
+				</div>	
+			</div>
+
+			<table class="table table-bordered table-hover table-dark" width="80%">
+				<colgroup>
+					<col style="width : 5%">
+					<col style="width : 77%">
+					<col style="width : 9%">
+		
+				</colgroup>
+				<thead>
+					<tr class="btn-secondary active">
+						<th>
+							<div class="d-flex justify-content-between p-0">
+								<div><h5>Id </h5></div>
+								<div>
+									<a data-toggle="tooltip" title="Sort By Id" asp-page-handler="SortById"><i class="fa fa-angle-up text-white"></i></a>
+									<a data-toggle="tooltip" title="Sort By Id Descending" asp-page-handler="SortByIdDescending"><i class="fa fa-angle-down text-white"></i></a>
+								</div>
+							</div>
+						</th>
+						<th>
+							<div class="d-flex justify-content-between p-0">
+								<div>
+									<h5>Name </h5>
+								</div>
+								<div>
+									<a data-toggle="tooltip" title="Sort By Email" asp-page-handler="SortByEmail"><i class="fa fa-angle-up text-white"></i></a>
+									<a data-toggle="tooltip" title="Sort By Email Descending" asp-page-handler="SortByNameEmail"><i class="fa fa-angle-down text-white"></i></a>
+								</div>
+							</div>
+
+						</th>			
+						<th>
+							<h5>Action</h5>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					@if (Model._users != null)
+					{
+						foreach (Models.User user in Model._users)
+						{
+							<tr class="btn-secondary">
+								<td class="text-white">
+									@user.Id
+								</td>
+								<td class="text-white">
+									@user.Email
+								</td>										
+								<td>
+									<a class="btn btn-sm" type="button" title="Update" asp-page="UpdateUser" asp-route-id="@user.Id"><i class="fa fa-edit" style="color: #CCEAF6"></i></a>
+									<a class="btn btn-sm " type="button" title="Delete" asp-page="DeleteUser" asp-route-id="@user.Id"><i class="fa fa-trash" style="color: #E0F6CC"></i></a>
+								</td>
+							</tr>
+						}
+					}
+				</tbody>
+			</table>
+
+			<p>
+				<a class="btn btn-dark" asp-page="/Staff/CreateClientUser"> Create Client User </a>
+				<a class="btn btn-dark" asp-page="CreateStaffUser"> Create Staff User </a>
+				<a asp-page="/Admin/ToolsPage" class="btn btn-outline-dark">Back</a>
+			</p>
+
+		
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+</div>

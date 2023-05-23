@@ -1,0 +1,46 @@
+﻿@page
+@model CTTSite.Pages.Staff.CreateClientUserModel
+@{
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 text-center">
+<h1>Create a new Client Login</h1>
+
+<div class="row">
+    <div class="container">
+        <div class=" text-danger">
+            @Model.Message
+        </div>
+        <div class="col-md-12">
+            <br />
+            <form method="post">
+                <div class="form-group">
+                    <label asp-for="@Model.Email" class="control-lable"></label>
+                    <input asp-for="@Model.Email" class="form-control" />
+                    <span asp-validation-for="@Model.newUser.Email" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <div class="form-group">
+                        <p>A randomly generated password will be sent to the user which they are instructed to change when the log in</p>
+
+                    </div>
+
+                </div>
+                <br />
+
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-dark" />
+                    <a asp-page="/Admin/ToolsPage" class="btn btn-outline-dark">Back</a>
+                </div>
+            </form>
+        </div>
+    </div>
+            </div>
+        </div>
+            <div class="col-md-1"></div>
+       
+    </div>
+</div>
