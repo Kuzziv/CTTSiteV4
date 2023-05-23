@@ -8,7 +8,7 @@
 <div class="row">
 <div class="col-md-1"></div>
     <div class="col-md-10">
-        @Model.message
+        
         <form method="post">
             <div class="form-group" hidden>
                 <label asp-for="@Model.Consultation.ID" class="control-lable"></label>
@@ -54,6 +54,7 @@
                 <input type="submit" value="Book Consultation" class="btn btn-dark" />
                 <a asp-page="/Consultation/AvailableConsultationsPage" class="btn btn-outline-dark">Back</a>
             </div>
+                <p class="text-danger">@Model.message</p>
         </form>
     </div>
     <div class="col-md-1"></div>
