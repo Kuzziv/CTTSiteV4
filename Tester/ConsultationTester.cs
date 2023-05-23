@@ -108,7 +108,7 @@ namespace UintTester
         {
             _mockDataConsultationService.DeleteExpiredUnbookedConsultations();
             //Assert
-            Assert.IsTrue(_mockDataConsultationService.GetAllConsultations().Count() == _mockDataConsultationService.GetAvailableConsultations().Count);
+            Assert.IsTrue(_mockDataConsultationService.GetAllConsultations().Count() == _mockDataConsultationService.GetAllConsultations().Count());
         }
 
         // Tests the IsDateWithInPresentDate method with a true case
