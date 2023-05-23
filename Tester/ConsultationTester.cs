@@ -54,10 +54,11 @@ namespace UintTester
         }
 
         // Tests the GetConsultationByID method
+        // We use object 9 because we know it exists in our mockData object and we know it's not going to be remove becuase it's one day ahead
         [TestMethod]
         public void Test_GetConsultationByID()
         {
-            Consultation consultation = _mockDataConsultationService.GetConsultationByID(1);
+            Consultation consultation = _mockDataConsultationService.GetConsultationByID(9);
             //Assert
             Assert.IsNotNull(consultation);
         }
@@ -78,14 +79,15 @@ namespace UintTester
         }
 
         // Tests the UpdateConsultation method
+        // We use object 9 because we know it exists in our mockData object and we know it's not going to be remove becuase it's one day ahead
         [TestMethod]
         public void Test_UpdateConsultation()
         {
-            Consultation consultation = _mockDataConsultationService.GetConsultationByID(1);
+            Consultation consultation = _mockDataConsultationService.GetConsultationByID(9);
             consultation.Booked = true;
             _mockDataConsultationService.UpdateConsultation(consultation);
             //Assert
-            Assert.IsTrue(_mockDataConsultationService.GetConsultationByID(1).Booked);
+            Assert.IsTrue(_mockDataConsultationService.GetConsultationByID(9).Booked);
         }
 
         // Tests the DeleteConsultation method
@@ -100,13 +102,13 @@ namespace UintTester
         }
 
         // Tests the DeleteExpiredUnbookedConsultations method
+        // Becuase all our mockData object has the bool booked set to false we can use GetAvailableConsultations() method to test this method
         [TestMethod]
         public void Test_DeleteExpiredUnbookedConsultations()
         {
             _mockDataConsultationService.DeleteExpiredUnbookedConsultations();
-            int listCount = _mockDataConsultationService.GetAllConsultations().Count();
             //Assert
-            Assert.IsTrue(_mockDataConsultationService.GetAllConsultations().Count() == listCount -1);
+            Assert.IsTrue(_mockDataConsultationService.GetAllConsultations().Count() == _mockDataConsultationService.GetAvailableConsultations().Count);
         }
 
         // Tests the IsDateWithInPresentDate method with a true case
@@ -129,6 +131,16 @@ namespace UintTester
             Assert.IsFalse(_mockDataConsultationService.IsDateWithInPresentDate(consultationTest));
         }
 
+        // Tests the IsDateWithInPresentDate method with a false case
+        [TestMethod]
+        public void Test_IsDateWithInPresentDate_False2()
+        {
+            DateTime date = DateTime.Now.AddDays(-2);
+            Consultation consultationTest = new Consultation(1, date, new TimeSpan(10, 0, 0), new TimeSpan(11, 0, 0), 2, "", "", "", false);
+            //Assert
+            Assert.IsFalse(_mockDataConsultationService.IsDateWithInPresentDate(consultationTest));
+        }
+
         // Tests the IsDateWithInPresentDate method with a true case
         [TestMethod]
         public void Test_IsDateWithInPresentDate_True()
@@ -141,36 +153,12 @@ namespace UintTester
 
         // Tests the IsDateWithInPresentDate method with a false case
         [TestMethod]
-        public void Test_IsDateWithInPresentDate_False2()
+        public void Test_IsDateWithInPresentDate_True2()
         {
             DateTime date = DateTime.Now.AddDays(2);
             Consultation consultationTest = new Consultation(1, date, new TimeSpan(10, 0, 0), new TimeSpan(11, 0, 0), 2, "", "", "", false);
             //Assert
-            Assert.IsFalse(_mockDataConsultationService.IsDateWithInPresentDate(consultationTest));
-        }
-
-        // Tests the IsTimeSlotAvailableInDataBase method with a true case
-        [TestMethod]
-        public void Test_IsTimeSlotAvailableInDataBase()
-        {
-            DateTime date = DateTime.Now;
-            TimeSpan startTime = DateTime.Now.TimeOfDay;
-            TimeSpan endTime = DateTime.Now.TimeOfDay;
-            Consultation consultationTest = new Consultation(1, date, startTime, endTime, 2, "", "", "", false);
-            //Assert
-            Assert.IsTrue(_mockDataConsultationService.IsTimeSlotAvailableInDataBase(consultationTest));
-        }
-
-        // Tests the IsTimeSlotAvailableInDataBase method with a false case
-        [TestMethod]
-        public void Test_IsTimeSlotAvailableInDataBase_False()
-        {
-            DateTime date = DateTime.Now;
-            TimeSpan startTime = DateTime.Now.TimeOfDay;
-            TimeSpan endTime = DateTime.Now.TimeOfDay;
-            Consultation consultationTest = new Consultation(1, date, startTime, endTime, 2, "", "", "", false);
-            //Assert
-            Assert.IsFalse(_mockDataConsultationService.IsTimeSlotAvailableInDataBase(consultationTest));
+            Assert.IsTrue(_mockDataConsultationService.IsDateWithInPresentDate(consultationTest));
         }
 
         // Tests the IsTimeSlotAvailableInDataBase method with a true case
@@ -185,16 +173,20 @@ namespace UintTester
             Assert.IsTrue(_mockDataConsultationService.IsTimeSlotAvailableInDataBase(consultationTest));
         }
 
-        // Tests the IsTimeSlotBeforeDateNow method with a false case
+        // Tests the IsTimeSlotAvailableInDataBase method with a false case
+        // In this we add a day to DateTime.Now so we know it's working no matter what time we run the test
         [TestMethod]
-        public void Test_IsTimeSlotBeforeDateNow_False()
+        public void Test_IsTimeSlotAvailableInDataBase_False()
         {
-            DateTime date = DateTime.Now;
-            TimeSpan startTime = DateTime.Now.TimeOfDay;
-            TimeSpan endTime = DateTime.Now.TimeOfDay;
-            Consultation consultationTest = new Consultation(1, date, startTime, endTime, 2, "", "", "", false);
-            //Assert
-            Assert.IsFalse(_mockDataConsultationService.IsTimeSlotBeforeDateNow(consultationTest));
+            // Arrange
+            DateTime date = DateTime.Now.AddDays(1);
+            Consultation consultationTest = new Consultation(14, date, new TimeSpan(12, 0, 0), new TimeSpan(13, 0, 0), 2, "", "", "", false);
+            _mockDataConsultationService.CreateConsultation(consultationTest);
+            // Act
+            bool isAvailable = _mockDataConsultationService.IsTimeSlotAvailableInDataBase(consultationTest);
+
+            // Assert
+            Assert.IsFalse(isAvailable);
         }
 
         // Tests the IsTimeSlotBeforeDateNow method with a true case
@@ -203,17 +195,29 @@ namespace UintTester
         {
             DateTime date = DateTime.Now;
             TimeSpan startTime = DateTime.Now.TimeOfDay;
-            TimeSpan endTime = DateTime.Now.TimeOfDay;
+            TimeSpan endTime = DateTime.Now.AddHours(1).TimeOfDay;
             Consultation consultationTest = new Consultation(1, date, startTime, endTime, 2, "", "", "", false);
             //Assert
             Assert.IsTrue(_mockDataConsultationService.IsTimeSlotBeforeDateNow(consultationTest));
         }
 
+        // Tests the IsTimeSlotBeforeDateNow method with a false case
+        [TestMethod]
+        public void Test_IsTimeSlotBeforeDateNow_False()
+        {
+            DateTime date = DateTime.Now;
+            TimeSpan startTime = DateTime.Now.TimeOfDay;
+            TimeSpan endTime = DateTime.Now.AddHours(-1).TimeOfDay;
+            Consultation consultationTest = new Consultation(1, date, startTime, endTime, 2, "", "", "", false);
+            //Assert
+            Assert.IsFalse(_mockDataConsultationService.IsTimeSlotBeforeDateNow(consultationTest));
+        }        
+
         // Tests the IsTimeSlotCorrectEntered method with a false case
         [TestMethod]
         public void Test_IsTimeSlotCorrectEntered_False()
         {
-            TimeSpan startTime = DateTime.Now.TimeOfDay;
+            TimeSpan startTime = DateTime.Now.AddHours(-1).TimeOfDay;
             TimeSpan endTime = DateTime.Now.TimeOfDay;
             Consultation consultationTest = new Consultation(1, DateTime.Now.Date, startTime, endTime, 2, "", "", "", false);
             //Assert
@@ -224,8 +228,8 @@ namespace UintTester
         [TestMethod]
         public void Test_IsTimeSlotCorrectEntered_True()
         {
-            TimeSpan startTime = DateTime.Now.TimeOfDay;
-            TimeSpan endTime = DateTime.Now.TimeOfDay;
+            TimeSpan startTime = DateTime.Now.AddHours(1).TimeOfDay;
+            TimeSpan endTime = DateTime.Now.AddHours(2).TimeOfDay;
             Consultation consultationTest = new Consultation(1, DateTime.Now.Date, startTime, endTime, 2, "", "", "", false);
             //Assert
             Assert.IsTrue(_mockDataConsultationService.IsTimeSlotCorrectEntered(consultationTest));
