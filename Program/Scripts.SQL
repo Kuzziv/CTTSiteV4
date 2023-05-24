@@ -31,9 +31,9 @@ SET IDENTITY_INSERT [dbo].[Users] OFF
 
 
 SET IDENTITY_INSERT [dbo].[Items] ON
-INSERT INTO [dbo].[Items] ([ID], [Name], [Description], [IMG], [Price], [Stock]) VALUES (1, N'Gift Basket', N'This gift basket is perfect for self-care', N'NoIMG', CAST(25.00 AS Decimal(18, 2)), 15)
-INSERT INTO [dbo].[Items] ([ID], [Name], [Description], [IMG], [Price], [Stock]) VALUES (2, N'Scented candles', N'These scented candles gives a lovely and relaxing aroma.', N'NoIMG', CAST(10.50 AS Decimal(18, 2)), 56)
-INSERT INTO [dbo].[Items] ([ID], [Name], [Description], [IMG], [Price], [Stock]) VALUES (3, N'Little book of hygge', N'Great book to take with you everywhere for a quick read.', N'NoIMG', CAST(29.00 AS Decimal(18, 2)), 74)
-INSERT INTO [dbo].[Items] ([ID], [Name], [Description], [IMG], [Price], [Stock]) VALUES (4, N'Paint kit', N'Cozy plaint kit to get your thoughts and emotions out on a canvas.', N'NoIMG', CAST(12.00 AS Decimal(18, 2)), 28)
-INSERT INTO [dbo].[Items] ([ID], [Name], [Description], [IMG], [Price], [Stock]) VALUES (5, N'Blanket', N'Soft and Fluffy', N'NoIMG', CAST(50.99 AS Decimal(18, 2)), 12)
+INSERT INTO [dbo].[Items] ([ID], [Name], [Description], [IMG], [Price], [Stock]) VALUES (1, N'Gift Basket', N'Handmade bee bombs, handmade soap, mini notepade, handmade bracelet, hot chocolate sachet, tealight candle, fiddle toy, dried lavender, prepackaged sweets, photoframe, gloss stickers, mindful coluring sheets, doodle sheets and CBT information sheets', N'/ShopImages/Wellness.png', CAST(25.00 AS Decimal(18, 2)), 15)
+INSERT INTO [dbo].[Items] ([ID], [Name], [Description], [IMG], [Price], [Stock]) VALUES (2, N'Scented candles', N'These scented candles gives a lovely and relaxing aroma.', N'/shopImages/Candle.png', CAST(10.50 AS Decimal(18, 2)), 56)
+INSERT INTO [dbo].[Items] ([ID], [Name], [Description], [IMG], [Price], [Stock]) VALUES (3, N'Little book of hygge', N'Great book to take with you everywhere for a quick read.', N'/shopImages/HyggeBook.png', CAST(29.00 AS Decimal(18, 2)), 75)
+INSERT INTO [dbo].[Items] ([ID], [Name], [Description], [IMG], [Price], [Stock]) VALUES (4, N'Paint kit', N'Cozy plaint kit to get your thoughts and emotions out on a canvas.', N'/shopImages/Paint.png', CAST(12.00 AS Decimal(18, 2)), 28)
+INSERT INTO [dbo].[Items] ([ID], [Name], [Description], [IMG], [Price], [Stock]) VALUES (5, N'Blanket', N'Soft and Fluffy', N'/shopImages/Blanket.png', CAST(50.99 AS Decimal(18, 2)), 12)
 SET IDENTITY_INSERT [dbo].[Items] OFF

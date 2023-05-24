@@ -9,7 +9,10 @@
                 <br />
                 <h1 class="text-center"><b>Available Consultations</b></h1>
                 <br />
-
+            @if (Model.GroupedConsultations.Count == 0)
+            {
+                <h3 class="text-center">If there are no consultations available please call 07949889492 or send an email at chilterntalkingtherapies@gmail.com</h3>
+            }
                 @if (Model.GroupedConsultations != null)
                 {
                     foreach (var group in Model.GroupedConsultations)
