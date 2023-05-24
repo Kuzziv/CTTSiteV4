@@ -125,8 +125,9 @@ namespace CTTSite.Services.NormalService
             DateTime currentDateTime = DateTime.Now;
 
             List<Consultation> expiredUnbookedConsultations = allConsultations
-                .Where(c => (!c.Booked && c.Date < currentDateTime.Date) || (!c.Booked && c.Date == currentDateTime.Date && c.StartTime < currentDateTime.TimeOfDay))
-                .ToList();
+                .Where(c => (!c.Booked && c.Date < currentDateTime.Date) 
+                || (!c.Booked && c.Date == currentDateTime.Date && c.StartTime < currentDateTime.TimeOfDay)
+                ).ToList();
 
             foreach (Consultation consultation in expiredUnbookedConsultations)
             {
