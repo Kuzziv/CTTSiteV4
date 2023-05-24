@@ -5,60 +5,59 @@
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
-<br />
-<h1 class="text-center"><b>Consultations</b></h1>
-<br />
-<div class="test">
-    <table class="table table-bordered table-hover table-dark" width="60%">
-        <thead>
-            <tr class="btn-secondary active">
-                <th>Date</th>
-                <th>StartDateTime</th>
-                <th>EndDateTime</th>
-                <th>BookedNamed</th>
-                <th>TelefonNummer</th>
-                <th>BookedEmail</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (Model.ConsultationsList != null)
-            {
-                foreach (Models.Consultation consultation in Model.ConsultationsList)
-                {
-                    <tr class="btn-secondary">
-                        <td>
-                            @consultation.Date.ToString("dd-MM-yyyy")
-                        </td>
-                        <td>
-                            @consultation.StartTime.ToString("hh':'mm")
-                        </td>
-                        <td>
-                            @consultation.EndTime.ToString("hh':'mm")
-                        </td>
-                        <td>
-                            @consultation.BookedNamed
-                        </td>
-                        <td>
-                            @consultation.TelefonNumber
-                        </td>
-                        <td>
-                            @consultation.BookedEmail
-                        </td>
-                        <td>
-                            <a class="btn btn-dark" type="button" asp-page="UpdateConsultationPage" asp-route-id="@consultation.ID"><i class="fa fa-pencil-square-o"></i></a>
-                            <a class="btn btn-danger" type="button" asp-page="DeleteConsultationPage" asp-route-id="@consultation.ID"><i class="fa fa-trash"></i></a>
-                        </td>
-                    </tr>
-                }
-            }
-        </tbody>
-    </table>
-</div>
-
-<a class="btn btn-dark" type="button" asp-page="CreateConsultationPage">Create Consultation</a>
-<a asp-page="/Admin/ToolsPage" class="btn btn-outline-dark">Back</a>
-</div>
-<div class="col-md-1"></div>
-</div>
+            <br />
+            <h1 class="text-center"><b>Consultations</b></h1>
+            <br />
+            <div class="test">
+                <table class="table table-bordered table-hover table-dark" width="60%">
+                    <thead>
+                        <tr class="btn-secondary active">
+                            <th>Date</th>
+                            <th>StartDateTime</th>
+                            <th>EndDateTime</th>
+                            <th>BookedNamed</th>
+                            <th>TelefonNummer</th>
+                            <th>BookedEmail</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.ConsultationsList != null)
+                        {
+                            foreach (Models.Consultation consultation in Model.ConsultationsList)
+                            {
+                                <tr class="btn-secondary">
+                                    <td>
+                                        @consultation.Date.ToString("dd-MM-yyyy")
+                                    </td>
+                                    <td>
+                                        @consultation.StartTime.ToString("hh':'mm")
+                                    </td>
+                                    <td>
+                                        @consultation.EndTime.ToString("hh':'mm")
+                                    </td>
+                                    <td>
+                                        @consultation.BookedNamed
+                                    </td>
+                                    <td>
+                                        @consultation.TelefonNumber
+                                    </td>
+                                    <td>
+                                        @consultation.BookedEmail
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-dark" type="button" asp-page="UpdateConsultationPage" asp-route-id="@consultation.ID"><i class="fa fa-pencil-square-o"></i></a>
+                                        <a class="btn btn-danger" type="button" asp-page="DeleteConsultationPage" asp-route-id="@consultation.ID"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <a class="btn btn-dark" type="button" asp-page="CreateConsultationPage">Create Consultation</a>
+            <a asp-page="/Admin/ToolsPage" class="btn btn-outline-dark">Back</a>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
 </div>

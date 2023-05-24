@@ -40,7 +40,7 @@ namespace UintTester
             List<Consultation> consultations = _mockDataConsultationService.GetAllConsultations();
             List<Consultation> sortedConsultations = _mockDataConsultationService.SortConsultationsByDateTime(consultations);
             //Assert
-            Assert.IsTrue(sortedConsultations.Count() > 0);
+            Assert.IsTrue();
         }
 
         // Tests the GroupConsultationsByDate method
@@ -50,11 +50,11 @@ namespace UintTester
             List<Consultation> consultations = _mockDataConsultationService.GetAllConsultations();
             List<IGrouping<DateTime, Consultation>> groupedConsultations = _mockDataConsultationService.GroupConsultationsByDate(consultations);
             //Assert
-            Assert.IsTrue(groupedConsultations.Count() > 0);
+            Assert.IsTrue();
         }
 
         // Tests the GetConsultationByID method
-        // We use object 9 because we know it exists in our mockData object and we know it's not going to be remove becuase it's one day ahead
+        // We use object 9 because we know it exists in our mockData object and we know it's not going to be remove because it's one day ahead
         [TestMethod]
         public void Test_GetConsultationByID()
         {
@@ -84,11 +84,11 @@ namespace UintTester
             consultation.Booked = false;
             _mockDataConsultationService.CreateConsultation(consultation);
             //Assert
-            Assert.IsTrue(_mockDataConsultationService.GetAllConsultations().Count() > 0);
+            Assert.IsTrue();
         }
 
         // Tests the UpdateConsultation method
-        // We use object 9 because we know it exists in our mockData object and we know it's not going to be remove becuase it's one day ahead
+        // We use object 9 because we know it exists in our mockData object and we know it's not going to be remove because it's one day ahead
         [TestMethod]
         public void Test_UpdateConsultation()
         {
@@ -111,18 +111,18 @@ namespace UintTester
         }
 
         // Tests the DeleteExpiredUnbookedConsultations method
-        // Becuase all our mockData object has the bool booked set to false we can use GetAvailableConsultations() method to test this method
+        // Because all our mockData object has the bool booked set to false we can use GetAvailableConsultations() method to test this method
         [TestMethod]
         public void Test_DeleteExpiredUnbookedConsultations()
         {
             _mockDataConsultationService.DeleteExpiredUnbookedConsultations();
             //Assert
-            Assert.IsTrue(_mockDataConsultationService.GetAllConsultations().Count() == _mockDataConsultationService.GetAllConsultations().Count());
+            Assert.IsTrue( <= );
         }
 
         // Tests the IsDateWithInPresentDate method with a true case
         [TestMethod]
-        public void Test_IsDateWithInPresentDate()
+        public void Test_IsDateWithinPresentDate()
         {
             DateTime date = DateTime.Now;
             Consultation consultationTest = new Consultation(1, date, new TimeSpan(10, 0, 0), new TimeSpan(11, 0, 0), 2, "", "", "", false);
@@ -132,51 +132,51 @@ namespace UintTester
 
         // Tests the IsDateWithInPresentDate method with a false case
         [TestMethod]
-        public void Test_IsDateWithInPresentDate_False()
+        public void Test_IsDateWithinPresentDate_False()
         {
             DateTime date = DateTime.Now.AddDays(-1);
             Consultation consultationTest = new Consultation(1, date, new TimeSpan(10, 0, 0), new TimeSpan(11, 0, 0), 2, "", "", "", false);
             //Assert
-            Assert.IsFalse(_mockDataConsultationService.IsDateWithInPresentDate(consultationTest));
+            Assert.IsFalse(_mockDataConsultationService.IsDateWithinPresentDate(consultationTest));
         }
 
         // Tests the IsDateWithInPresentDate method with a false case
         [TestMethod]
-        public void Test_IsDateWithInPresentDate_False2()
+        public void Test_IsDateWithinPresentDate_False2()
         {
             DateTime date = DateTime.Now.AddDays(-2);
             Consultation consultationTest = new Consultation(1, date, new TimeSpan(10, 0, 0), new TimeSpan(11, 0, 0), 2, "", "", "", false);
             //Assert
-            Assert.IsFalse(_mockDataConsultationService.IsDateWithInPresentDate(consultationTest));
+            Assert.IsFalse(_mockDataConsultationService.IsDateWithinPresentDate(consultationTest));
         }
 
         // Tests the IsDateWithInPresentDate method with a null case
         [TestMethod]
-        public void Test_IsDateWithInPresentDate_null()
+        public void Test_IsDateWithinPresentDate_null()
         {
             Consultation consultationTest = null;
             //Assert
-            Assert.IsFalse(_mockDataConsultationService.IsDateWithInPresentDate(consultationTest));
+            Assert.IsFalse(_mockDataConsultationService.IsDateWithinPresentDate(consultationTest));
         }
 
         // Tests the IsDateWithInPresentDate method with a true case
         [TestMethod]
-        public void Test_IsDateWithInPresentDate_True()
+        public void Test_IsDateWithinPresentDate_True()
         {
             DateTime date = DateTime.Now.AddDays(1);
             Consultation consultationTest = new Consultation(1, date, new TimeSpan(10, 0, 0), new TimeSpan(11, 0, 0), 2, "", "", "", false);
             //Assert
-            Assert.IsTrue(_mockDataConsultationService.IsDateWithInPresentDate(consultationTest));
+            Assert.IsTrue(_mockDataConsultationService.IsDateWithinPresentDate(consultationTest));
         }
 
         // Tests the IsDateWithInPresentDate method with a false case
         [TestMethod]
-        public void Test_IsDateWithInPresentDate_True2()
+        public void Test_IsDateWithinPresentDate_True2()
         {
             DateTime date = DateTime.Now.AddDays(2);
             Consultation consultationTest = new Consultation(1, date, new TimeSpan(10, 0, 0), new TimeSpan(11, 0, 0), 2, "", "", "", false);
             //Assert
-            Assert.IsTrue(_mockDataConsultationService.IsDateWithInPresentDate(consultationTest));
+            Assert.IsTrue(_mockDataConsultationService.IsDateWithinPresentDate(consultationTest));
         }
 
         // Tests the IsTimeSlotAvailableInDataBase method with a true case

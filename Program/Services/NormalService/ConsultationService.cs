@@ -136,7 +136,7 @@ namespace CTTSite.Services.NormalService
         }
 
         //check for date is available
-        public bool IsDateWithInPresentDate(Consultation consultation)
+        public bool IsDateWithinPresentDate(Consultation consultation)
         {
             if (consultation == null)
             {

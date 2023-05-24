@@ -113,7 +113,7 @@ namespace CTTSite.Services.MockDataService
             ConsultationsList = allConsultations;
         }
 
-        public bool IsDateWithInPresentDate(Consultation consultation)
+        public bool IsDateWithinPresentDate(Consultation consultation)
         {
             if (consultation == null)
             {

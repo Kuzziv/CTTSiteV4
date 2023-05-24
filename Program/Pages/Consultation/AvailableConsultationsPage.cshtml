@@ -5,51 +5,51 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-1"></div>
-        <div class="col-md-10 text-center">
-<br />
-<h1 class="text-center"><b>Available Consultations</b></h1>
-<br />
+            <div class="col-md-10 text-center">
+                <br />
+                <h1 class="text-center"><b>Available Consultations</b></h1>
+                <br />
 
-@if (Model.GroupedConsultations != null)
-{
-    foreach (var group in Model.GroupedConsultations)
-    {
-        <h2 class="text-center"><b>@group.Key.ToString("dd-MM-yyyy")</b></h2>
-        <div class="test">
-            <table class="table table-bordered table-hover table-dark" width="80%">
-                <thead>
-                    <tr class="btn-secondary active">
-                        <th>Date</th>
-                        <th>Start Time</th>
-                        <th>End Time</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (Models.Consultation consultation in group)
+                @if (Model.GroupedConsultations != null)
+                {
+                    foreach (var group in Model.GroupedConsultations)
                     {
-                        <tr class="btn-secondary">
-                            <td>
-                                @consultation.Date.ToString("dd-MM-yyyy")
-                            </td>
-                            <td>
-                                @consultation.StartTime.ToString("hh':'mm")
-                            </td>
-                            <td>
-                                @consultation.EndTime.ToString("hh':'mm")
-                            </td>
-                            <td>
-                                <a class="btn btn-secondary" type="button" asp-page="BookConsultationPage" asp-route-id="@consultation.ID">Book</a>
-                            </td>
-                        </tr>
+                        <h2 class="text-center"><b>@group.Key.ToString("dd-MM-yyyy")</b></h2>
+                        <div class="test">
+                            <table class="table table-bordered table-hover table-dark" width="80%">
+                                <thead>
+                                    <tr class="btn-secondary active">
+                                        <th>Date</th>
+                                        <th>Start Time</th>
+                                        <th>End Time</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (Models.Consultation consultation in group)
+                                    {
+                                        <tr class="btn-secondary">
+                                            <td>
+                                                @consultation.Date.ToString("dd-MM-yyyy")
+                                            </td>
+                                            <td>
+                                                @consultation.StartTime.ToString("hh':'mm")
+                                            </td>
+                                            <td>
+                                                @consultation.EndTime.ToString("hh':'mm")
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-secondary" type="button" asp-page="BookConsultationPage" asp-route-id="@consultation.ID">Book</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
                     }
-                </tbody>
-            </table>
-        </div>
-    }
-}
-</div>
-            <div class="col-md-1"></div>
-</div>
+                }
+            </div>
+        <div class="col-md-1"></div>
+    </div>
 </div>
 

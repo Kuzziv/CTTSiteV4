@@ -34,7 +34,7 @@ namespace CTTSite.Pages.Consultation
             Consultation.TelefonNumber = "";
             Consultation.BookedEmail = "";
             Consultation.Booked = false;
-            if (_consultationService.IsDateWithInPresentDate(Consultation) == false)
+            if (_consultationService.IsDateWithinPresentDate(Consultation) == false)
             {
                 Message = "You can't create a consultation in the past";
                 MessageColor = "red";
