@@ -16,8 +16,8 @@
                             <th>Date</th>
                             <th>Start Time</th>
                             <th>End Time</th>
-                            <th>Name</th>
-                            <th>Telefone Number</th>
+                            <th>Client Name</th>
+                            <th>Client Phone Number</th>
                             <th>Client Email</th>
                             <th>Action</th>
                         </tr>
@@ -47,7 +47,7 @@
                                         @consultation.BookedEmail
                                     </td>
                                     <td>
-                                        <a class="btn btn-dark" type="button" asp-page="UpdateConsultationPage" asp-route-id="@consultation.ID"><i class="fa fa-pencil-square-o"></i></a>
+                                        <a class="btn btn-outline-light" type="button" asp-page="UpdateConsultationPage" asp-route-id="@consultation.ID"><i class="fa fa-pencil-square-o"></i></a>
                                         <a class="btn btn-danger" type="button" asp-page="DeleteConsultationPage" asp-route-id="@consultation.ID"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>

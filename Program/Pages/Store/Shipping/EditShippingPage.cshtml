@@ -6,12 +6,8 @@
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4 text-center">
-
-    <form method="post">
-                
-        <div class="form-row">
-           
-               
+            <form method="post">                
+                <div class="form-row">               
                     <h1 class="text-center"><b>Edit Shipping Information</b></h1>
                     <br />
                     <div class="form-group" hidden>
@@ -66,21 +62,13 @@
                         <input asp-for="@Model.ShippingInfo.SubmissionDate" class="form-control" readonly="@(true)"  />
                     </div>
 
-                 <br />
-                        <div class="form-group">
-                            <input type="submit" value="Update" class="btn btn-dark" />
-                            <a asp-page="/Store/Order/AllOrderPage" class="btn btn-outline-dark">Back</a>
-                        </div>
-                   
-
-            
-
-               
-           </div>
-                    
-           
-        
-    </form>
+                    <br />
+                    <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-dark" />
+                        <a asp-page="/Store/Order/AllOrderPage" class="btn btn-outline-dark">Back</a>
+                    </div>              
+                </div>       
+            </form>
         </div>
         <div class="col-md-4"></div>
     </div>
