@@ -40,17 +40,21 @@ namespace UintTester
             List<Consultation> consultations = _mockDataConsultationService.GetAllConsultations();
             List<Consultation> sortedConsultations = _mockDataConsultationService.SortConsultationsByDateTime(consultations);
             //Assert
-            Assert.IsTrue(sortedConsultations[1].Date.Date <  sortedConsultations[7].Date.Date);
+            Assert.IsTrue(sortedConsultations[1].Date.Date <  sortedConsultations[4].Date.Date);
         }
 
-        // Tests the GroupConsultationsByDate method
         [TestMethod]
         public void Test_GroupConsultationsByDate()
         {
             List<Consultation> consultations = _mockDataConsultationService.GetAllConsultations();
             List<IGrouping<DateTime, Consultation>> groupedConsultations = _mockDataConsultationService.GroupConsultationsByDate(consultations);
-            //Assert
-            Assert.IsTrue(groupedConsultations[1] == groupedConsultations[2] );
+
+            // Extract the Date property from each Consultation object in the groupedConsultations[1] and groupedConsultations[2]
+            List<DateTime> dates1 = groupedConsultations[1].Select(c => c.Date).ToList();
+            List<DateTime> dates2 = groupedConsultations[2].Select(c => c.Date).ToList();
+
+            // Assert
+            Assert.IsTrue(dates1[1] < dates2[2]);
         }
 
         // Tests the GetConsultationByID method
@@ -86,7 +90,7 @@ namespace UintTester
             _mockDataConsultationService.CreateConsultation(consultation);
             int countAfterAdd = _mockDataConsultationService.GetAvailableConsultations().Count();
             //Assert
-            Assert.IsTrue(countBeForeAdd > countAfterAdd);
+            Assert.IsTrue(countBeForeAdd < countAfterAdd);
         }
 
         // Tests the UpdateConsultation method
