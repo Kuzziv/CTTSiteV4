@@ -15,8 +15,8 @@ namespace CTTSite.Services.NormalService
         private readonly JsonFileService<CartItem> _jsonFileService;
         private readonly IItemService _itemService;
         private readonly IUserService _userService;
-        public List<CartItem> CartItems { get; private set; }
-        public List<Item> Items { get; private set; }
+        private List<CartItem> _cartItems { get; set; }
+        private List<Item> _items { get; set; }
 
         public CartItemService(DBServiceGeneric<CartItem> dBServiceGenericCartItem, JsonFileService<CartItem> jsonFileService, IItemService itemService, IUserService userService)
         {
@@ -24,8 +24,8 @@ namespace CTTSite.Services.NormalService
             _jsonFileService = jsonFileService;
             _itemService = itemService;
             _userService = userService;
-            CartItems = GetAllCartItemsAsync().Result;
-            Items = _itemService.GetAllItemsAsync().GetAwaiter().GetResult();
+            _cartItems = GetAllCartItemsAsync().Result;
+            _items = _itemService.GetAllItemsAsync().GetAwaiter().GetResult();
         }
 
         public async Task<bool> IsCartEmptyAsync(string userEmail)
@@ -61,7 +61,7 @@ namespace CTTSite.Services.NormalService
             //    }
             //}
             //cartItem.ID = IDCount + 1;
-            CartItems.Add(cartItem);
+            _cartItems.Add(cartItem);
             //_jsonFileService.SaveJsonObjects(CartItems);
             await _dBServiceGenericCartItem.AddObjectAsync(cartItem);
         }
@@ -111,7 +111,7 @@ namespace CTTSite.Services.NormalService
 
             if (cartItemToBeDeleted != null)
             {
-                CartItems.Remove(cartItemToBeDeleted);
+                _cartItems.Remove(cartItemToBeDeleted);
                 //_jsonFileService.SaveJsonObjects(CartItems);
                 await _dBServiceGenericCartItem.DeleteObjectAsync(cartItemToBeDeleted);
             }

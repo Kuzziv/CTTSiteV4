@@ -12,14 +12,14 @@ namespace CTTSite.Services.NormalService
         private readonly JsonFileService<ShippingInfo> _jsonFileService;
         private readonly DBServiceGeneric<ShippingInfo> _dBServiceGeneric;
         private readonly IEmailService _emailService;
-        List<ShippingInfo> ShippingInfoList;
+        private List<ShippingInfo> _shippingInfoList;
 
         public ShippingInfoService(JsonFileService<ShippingInfo> jsonFileService, DBServiceGeneric<ShippingInfo> dBServiceGeneric, IEmailService emailService)
         {
             _jsonFileService = jsonFileService;
             _dBServiceGeneric = dBServiceGeneric;
             _emailService = emailService;
-            ShippingInfoList = GetAllShippingInfoAsync().Result;
+            _shippingInfoList = GetAllShippingInfoAsync().Result;
         }
 
         public async Task<List<ShippingInfo>> GetAllShippingInfoAsync()
@@ -40,7 +40,7 @@ namespace CTTSite.Services.NormalService
             //    }
             //}
             //shippingInfo.ID = IDCount + 1;
-            ShippingInfoList.Add(shippingInfo);
+            _shippingInfoList.Add(shippingInfo);
             //_jsonFileService.SaveJsonObjects(ShippingInfoList);
             await _dBServiceGeneric.AddObjectAsync(shippingInfo);
         }
@@ -64,7 +64,7 @@ namespace CTTSite.Services.NormalService
             ShippingInfo shippingInfoToBeDelete = await GetShippingByOrderIDAsync(ID);
             if (shippingInfoToBeDelete != null)
             {
-                ShippingInfoList.Remove(shippingInfoToBeDelete);
+                _shippingInfoList.Remove(shippingInfoToBeDelete);
                 //_jsonFileService.SaveJsonObjects(ShippingInfoList);
                 await _dBServiceGeneric.DeleteObjectAsync(shippingInfoToBeDelete);
             }

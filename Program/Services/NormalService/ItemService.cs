@@ -9,13 +9,13 @@ namespace CTTSite.Services.NormalService
     {
         private readonly DBServiceGeneric<Item> _dBServiceGeneric;
         private readonly JsonFileService<Item> _jsonFileService;
-        public List<Item> Items { get; private set; }
+        private List<Item> _items { get; set; }
 
         public ItemService(DBServiceGeneric<Item> dBServiceGeneric, JsonFileService<Item> jsonFileService)
         {
             _dBServiceGeneric = dBServiceGeneric;
             _jsonFileService = jsonFileService;
-            Items = GetAllItemsAsync().Result;
+            _items = GetAllItemsAsync().Result;
         }
 
         public async Task<List<Item>> GetAllItemsAsync()
@@ -36,7 +36,7 @@ namespace CTTSite.Services.NormalService
             //    }
             //}
             //item.ID = IDCount + 1;
-            Items.Add(item);
+            _items.Add(item);
             //_jsonFileService.SaveJsonObjects(Items);
             await _dBServiceGeneric.AddObjectAsync(item);
         }
@@ -46,8 +46,8 @@ namespace CTTSite.Services.NormalService
             Item itemToBeDeleted = await GetItemByIDAsync(ID);
             if (itemToBeDeleted != null)
             {
-                Items.Remove(itemToBeDeleted);
-                _jsonFileService.SaveJsonObjects(Items);
+                _items.Remove(itemToBeDeleted);
+                _jsonFileService.SaveJsonObjects(_items);
                 await _dBServiceGeneric.DeleteObjectAsync(itemToBeDeleted);
             }
         }
@@ -56,7 +56,7 @@ namespace CTTSite.Services.NormalService
         {
             if(itemN != null) 
             { 
-                foreach(Item itemO in Items) 
+                foreach(Item itemO in _items) 
                 { 
                     if(itemO.ID == itemN.ID)
                     {

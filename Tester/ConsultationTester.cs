@@ -40,7 +40,7 @@ namespace UintTester
             List<Consultation> consultations = _mockDataConsultationService.GetAllConsultations();
             List<Consultation> sortedConsultations = _mockDataConsultationService.SortConsultationsByDateTime(consultations);
             //Assert
-            Assert.IsTrue();
+            Assert.IsTrue(sortedConsultations[1].Date.Date <  sortedConsultations[7].Date.Date);
         }
 
         // Tests the GroupConsultationsByDate method
@@ -50,7 +50,7 @@ namespace UintTester
             List<Consultation> consultations = _mockDataConsultationService.GetAllConsultations();
             List<IGrouping<DateTime, Consultation>> groupedConsultations = _mockDataConsultationService.GroupConsultationsByDate(consultations);
             //Assert
-            Assert.IsTrue();
+            Assert.IsTrue(groupedConsultations[1] == groupedConsultations[2] );
         }
 
         // Tests the GetConsultationByID method
@@ -76,6 +76,7 @@ namespace UintTester
         [TestMethod]
         public void Test_CreateConsultation()
         {
+            int countBeForeAdd = _mockDataConsultationService.GetAvailableConsultations().Count();
             Consultation consultation = new Consultation();
             consultation.ID = 1;
             consultation.Date = DateTime.Now;
@@ -83,8 +84,9 @@ namespace UintTester
             consultation.EndTime = DateTime.Now.TimeOfDay;
             consultation.Booked = false;
             _mockDataConsultationService.CreateConsultation(consultation);
+            int countAfterAdd = _mockDataConsultationService.GetAvailableConsultations().Count();
             //Assert
-            Assert.IsTrue();
+            Assert.IsTrue(countBeForeAdd > countAfterAdd);
         }
 
         // Tests the UpdateConsultation method
@@ -115,9 +117,11 @@ namespace UintTester
         [TestMethod]
         public void Test_DeleteExpiredUnbookedConsultations()
         {
+            int countBeforeDelete = _mockDataConsultationService.GetAvailableConsultations().Count();
             _mockDataConsultationService.DeleteExpiredUnbookedConsultations();
+            int countAfterDelete = _mockDataConsultationService.GetAvailableConsultations().Count();
             //Assert
-            Assert.IsTrue( <= );
+            Assert.IsTrue(countBeforeDelete >= countAfterDelete);
         }
 
         // Tests the IsDateWithInPresentDate method with a true case
@@ -125,9 +129,11 @@ namespace UintTester
         public void Test_IsDateWithinPresentDate()
         {
             DateTime date = DateTime.Now;
-            Consultation consultationTest = new Consultation(1, date, new TimeSpan(10, 0, 0), new TimeSpan(11, 0, 0), 2, "", "", "", false);
+            TimeSpan startTime = DateTime.Now.AddHours(1).TimeOfDay;
+            TimeSpan endTime = DateTime.Now.AddHours(2).TimeOfDay;
+            Consultation consultationTest = new Consultation(1, date, startTime, endTime, 2, "", "", "", false);
             //Assert
-            Assert.IsTrue(_mockDataConsultationService.IsDateWithInPresentDate(consultationTest));
+            Assert.IsTrue(_mockDataConsultationService.IsDateWithinPresentDate(consultationTest));
         }
 
         // Tests the IsDateWithInPresentDate method with a false case

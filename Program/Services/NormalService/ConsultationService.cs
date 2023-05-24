@@ -14,14 +14,14 @@ namespace CTTSite.Services.NormalService
         private readonly IEmailService _emailService;
         private readonly DBServiceGeneric<Consultation> _dbServiceGeneric;
         private readonly JsonFileService<Consultation> _jsonFileService;
-        public List<Consultation> ConsultationsList;
+        private List<Consultation> _consultationsList;
 
         public ConsultationService(DBServiceGeneric<Consultation> dbServiceGeneric, JsonFileService<Consultation> jsonFileService, IEmailService emailService)
         {
             _dbServiceGeneric = dbServiceGeneric;
             _jsonFileService = jsonFileService;
             _emailService = emailService;
-            ConsultationsList = GetAllConsultationsAsync().Result;
+            _consultationsList = GetAllConsultationsAsync().Result;
         }
 
         public async Task<List<Consultation>> GetAllConsultationsAsync()
@@ -78,7 +78,7 @@ namespace CTTSite.Services.NormalService
             //}
             //consultation.ID = IDCount + 1;
             consultation.Date = consultation.Date.Date;
-            ConsultationsList.Add(consultation);
+            _consultationsList.Add(consultation);
             await _dbServiceGeneric.AddObjectAsync(consultation);
             //_jsonFileService.SaveJsonObjects(ConsultationsList);
         }
@@ -88,7 +88,7 @@ namespace CTTSite.Services.NormalService
             Consultation consultationToBeDeleted = null;
             if (consultation != null)
             {
-                ConsultationsList.Remove(consultation);
+                _consultationsList.Remove(consultation);
                 //_ssonFileService.SaveJsonObjects(ConsultationsList);
                 await _dbServiceGeneric.DeleteObjectAsync(consultation);
             }
