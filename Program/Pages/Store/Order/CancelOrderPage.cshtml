@@ -6,15 +6,14 @@
 <div class="modal" id="myModal">
     <div class="modal-dialog">
         <div class="modal-content bg-dark">
-            <div class="modal-body " style="color: #CCEAF6">
-                <p><b>Are you sure that you want to cancel your order: "@Model.Order.ID"</b></p>
+            <div class="modal-body">
+                <p class="text-white"><b>Are you sure that you want to cancel your order: "@Model.Order.ID"</b></p>
             </div>
             <div class="modal-footer">
                 <form method="post">
                     <button type="submit" class="btn btn-danger">Yes</button>
-                    <a class="btn btn-outline" style="color: #CCEAF6; outline-color: #CCEAF6" asp-page="SpecificUserOrderPage">No</a>
+                    <a class="btn btn-secondary" asp-page="SpecificUserOrderPage">No</a>
                 </form>
-
             </div>
         </div>
     </div>

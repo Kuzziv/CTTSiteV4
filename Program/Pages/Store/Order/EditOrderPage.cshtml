@@ -2,57 +2,65 @@
 @model CTTSite.Pages.Store.Order.EditOrderPageModel
 @{
 }
-<div class="container-fluid">
 
+
+<div class="container-fluid text-center">
     <div class="row">
         <div class="col-md-1"></div>
-
         <div class="col-md-10 text-center">
-
-    <div class="col-md-6">
-        <h4 class="text-center"><b>Shipping Information</b></h4>
-        <br />
-    </div>
-    <form method="post">
-        <div class="form-row">
-            <div class="col-md-2">
-                <div class="form-group">
-                    <label asp-for="@Model.Order.ID" class="control-lable">Order ID</label>
-                    <input asp-for="@Model.Order.ID" class="form-control" readonly="@(true)" />
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <h1 class="text-center"><b>Edit order</b></h1>
                 </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Order.UserID" class="control-lable">User ID</label>
-                    <input asp-for="@Model.Order.UserID" class="form-control" readonly="@(true)" />
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Order.TotalPrice" class="control-lable">Order's total price'</label>
-                    <input asp-for="@Model.Order.TotalPrice" class="form-control" />
-                    <span asp-validation-for="@Model.Order.TotalPrice" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Order.Shipped" class="control-label">Has the order been shipped</label>
-                    <div>
-                        <input asp-for="@Model.Order.Shipped" class="form-check-input" />
-                        <span asp-validation-for="@Model.Order.Shipped" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Order.Cancelled" class="control-label">Is the order canceled</label>
-                    <div>
-                        <input asp-for="@Model.Order.Cancelled" class="form-check-input" />
-                        <span asp-validation-for="@Model.Order.Cancelled" class="text-danger"></span>
-                    </div>
-                </div>
-                <form method="post" class="form-inline">
-                    <div class="form-group">
-                        <input type="submit" value="Update" class="btn btn-dark mr-2" />
-                        <a asp-page="/Store/Order/AllOrderPage" class="btn btn-dark">Back</a>
-                    </div>
-                </form>
+                <div class="col-md-3"></div>
             </div>
+            <br />
         </div>
-    </form>
-        </div>
-        <div class="col-md-1"></div>
+        <form method="post">
+            <div class="form-row">
+                <div class="row"><
+                    <div class="col-md-5"></div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label asp-for="@Model.Order.ID" class="control-lable">Order ID</label>
+                            <input asp-for="@Model.Order.ID" class="form-control" readonly="@(true)" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.Order.UserID" class="control-lable">User ID</label>
+                            <input asp-for="@Model.Order.UserID" class="form-control" readonly="@(true)" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.Order.TotalPrice" class="control-lable">Order's total price'</label>
+                            <input asp-for="@Model.Order.TotalPrice" class="form-control" />
+                            <span asp-validation-for="@Model.Order.TotalPrice" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.Order.Shipped" class="control-label">Has the order been shipped</label>
+                            <div>
+                                <input asp-for="@Model.Order.Shipped" class="form-check-input" />
+                                <span asp-validation-for="@Model.Order.Shipped" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.Order.Cancelled" class="control-label">Is the order canceled</label>
+                            <div>
+                                <input asp-for="@Model.Order.Cancelled" class="form-check-input" />
+                                <span asp-validation-for="@Model.Order.Cancelled" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <br />
+                        <form method="post" class="form-inline">
+                            <div class="form-group">
+                                <input type="submit" value="Update" class="btn btn-dark mr-2" />
+                                <a asp-page="/Store/Order/AllOrderPage" class="btn btn-outline-dark">Back</a>
+                            </div>
+                        </form>
+                        <div class="col-md-5"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
+    <div class="col-md-1"></div>
 </div>
