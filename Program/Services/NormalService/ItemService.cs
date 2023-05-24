@@ -18,11 +18,6 @@ namespace CTTSite.Services.NormalService
             Items = GetAllItemsAsync().Result;
         }
 
-        public ItemService()
-        {
-            
-        }
-
         public async Task<List<Item>> GetAllItemsAsync()
         {
             return (await _dBServiceGeneric.GetObjectsAsync()).ToList();
@@ -96,15 +91,9 @@ namespace CTTSite.Services.NormalService
             Item item = await GetItemByIDAsync(itemID);
             if (item != null)
             {
-                if (amount > 0)
+                if (amount != null)
                 {
-                    item.Stock += amount;
-                    //_jsonFileService.SaveJsonObjects(Items);
-                    await _dBServiceGeneric.UpdateObjectAsync(item);
-                }
-                else
-                {
-                    item.Stock -= amount;
+                    item.Stock = item.Stock + amount;
                     //_jsonFileService.SaveJsonObjects(Items);
                     await _dBServiceGeneric.UpdateObjectAsync(item);
                 }

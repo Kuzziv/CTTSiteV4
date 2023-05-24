@@ -23,8 +23,9 @@
                             <h4 class="card-title"><b>@Item.Name</b></h4>
                             <h4 class="card-text">@Item.Price £</h4>
                             <h4 class="card-text">Product Stock: @Item.Stock </h4>
-                            <a class="btn btn-dark" type="button" asp-page="UpdateProductPage" asp-route-id="@Item.ID"><i class="fa fa-pencil-square-o"></i></a>
-                            <a class="btn btn-danger" type="button" asp-page="DeleteProductPage" asp-route-id="@Item.ID"><i class="fa fa-trash"></i></a>
+                                <a class="btn btn-outline-light" type="button" asp-page="UpdateProductPage" asp-route-id="@Item.ID"><i class="fa fa-pencil-square-o"></i></a>
+                                <a class="btn btn-outline-light" type="button" asp-page="UpdateStockOnProductPage" asp-route-id="@Item.ID"><i class="fa fa-plus-circle"></i></a>
+                                <a class="btn btn-danger" type="button" asp-page="DeleteProductPage" asp-route-id="@Item.ID"><i class="fa fa-trash"></i></a>                            
                         </div>
                     </div>
                 </a>
