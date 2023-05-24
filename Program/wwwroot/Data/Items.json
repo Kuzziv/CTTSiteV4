@@ -2,49 +2,49 @@
   {
     "ID": 1,
     "Name": "Gift Basket",
-    "Description": "This gift basket is perfect for self-care",
-    "IMG": "NoIMG",
+    "Description": "Handmade bee bombs, handmade soap, mini notepade, handmade bracelet, hot chocolate sachet, tealight candle, fiddle toy, dried lavender, prepackaged sweets, photoframe, gloss stickers, mindful coluring sheets, doodle sheets and CBT information sheets",
+    "IMG": "/ShopImages/Wellness.png",
     "Price": 25.00,
-    "Stock": 5
+    "Stock": 12
   },
   {
     "ID": 2,
     "Name": "Scented candles",
     "Description": "These scented candles gives a lovely and relaxing aroma.",
-    "IMG": "NoIMG",
+    "IMG": "/shopImages/Candle.png",
     "Price": 10.50,
-    "Stock": 48
+    "Stock": 56
   },
   {
     "ID": 3,
     "Name": "Little book of hygge",
     "Description": "Great book to take with you everywhere for a quick read.",
-    "IMG": "NoIMG",
+    "IMG": "/shopImages/HyggeBook.png",
     "Price": 29.00,
-    "Stock": 67
+    "Stock": 74
   },
   {
     "ID": 4,
     "Name": "Paint kit",
     "Description": "Cozy plaint kit to get your thoughts and emotions out on a canvas.",
-    "IMG": "NoIMG",
+    "IMG": "/shopImages/Paint.png",
     "Price": 12.00,
-    "Stock": 20
+    "Stock": 28
   },
   {
     "ID": 5,
     "Name": "Blanket",
     "Description": "Soft and Fluffy",
-    "IMG": "NoIMG",
+    "IMG": "/shopImages/Blanket.png",
     "Price": 50.99,
-    "Stock": 5
+    "Stock": 12
   },
   {
-    "ID": 7,
-    "Name": "Mus",
-    "Description": "Go to love it",
+    "ID": 6,
+    "Name": "Mic",
+    "Description": "fgsd",
     "IMG": "NoIMG",
-    "Price": 550,
-    "Stock": 48
+    "Price": 58.00,
+    "Stock": 85
   }
 ]

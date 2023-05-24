@@ -4,35 +4,34 @@
 }
 
 
-
-    <h1 class="text-center" style="margin-bottom:4%"><b>@Model.Item.Name</b></h1>
-    <br />
-    <div class="row text-center">
-        <div class="col-1"></div>
-        <div class="col-4">
-            <h4>Description:</h4><br />
-            <p>@Model.Item.Description</p>
-            <br />
-            <h4>£@Model.Item.Price</h4>
-        </div>
-        <div class="col-2"></div>
-        <div class="col-4">
-            <img src="@Model.Item.IMG" alt="Product image" class="responsive" style="margin-bottom:4%" />
-            <br />
-            <form method="post">
-                <p>Amount:</p>
-                <input asp-for="@Model.Count" class="form-control" />
-                <span asp-validation-for="@Model.Count" class="text-danger"></span>
-                <br />
-                <div class="text-center">
-                    <p style="color: @Model.MessageColor;">@Model.Message</p>
-                </div>
-                <div class="form-group ">
-                    <input type="submit" value="Add to cart" class="btn btn-dark" />
-                    <a asp-page="AllProductsPage" class="btn btn-outline-dark">Back</a>
-                </div>
-            </form>
-        </div>
-        <div class="col-1"></div>
+<h1 class="text-center" style="margin-bottom:4%"><b>@Model.Item.Name</b></h1>
+<br />
+<div class="row text-center">
+    <div class="col-1"></div>
+    <div class="col-4">
+        <h4>Description:</h4><br />
+        <p>@Model.Item.Description</p>
+        <br />
+        <h4>£@Model.Item.Price</h4>
     </div>
+    <div class="col-2"></div>
+    <div class="col-4">
+        <img src="@Model.Item.IMG" alt="Product image" class="responsive" style="margin-bottom:4%" />
+        <br />
+        <form method="post">
+            <p>Amount:</p>
+            <input asp-for="@Model.Count" class="form-control" />
+            <span asp-validation-for="@Model.Count" class="text-danger"></span>
+            <br />
+            <div class="text-center">
+                <p style="color: @Model.MessageColor;">@Model.Message</p>
+            </div>
+            <div class="form-group ">
+                <input type="submit" value="Add to cart" class="btn btn-dark" />
+                <a asp-page="AllProductsPage" class="btn btn-outline-dark">Back</a>
+            </div>
+        </form>
+    </div>
+    <div class="col-1"></div>
+</div>
 
