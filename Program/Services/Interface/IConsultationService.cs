@@ -2,6 +2,7 @@
 
 namespace CTTSite.Services.Interface
 {
+    //Made by Mads
     public interface IConsultationService
     {
         Task CreateConsultationAsync(Consultation consultation);

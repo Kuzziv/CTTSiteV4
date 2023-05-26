@@ -9,6 +9,7 @@ using Consultation = CTTSite.Models.Consultation;
 
 namespace CTTSite.Services.NormalService
 {
+    //Made by Mads
     public class ConsultationService : IConsultationService
     {
         private readonly IEmailService _emailService;
@@ -22,12 +23,38 @@ namespace CTTSite.Services.NormalService
             _consultationsList = GetAllConsultationsAsync().Result;
         }
 
+        //CRUD create method
+        public async Task CreateConsultationAsync(Consultation consultation)
+        {
+            consultation.Date = consultation.Date.Date;
+            _consultationsList.Add(consultation);
+            await _dbServiceGeneric.AddObjectAsync(consultation);
+        }
+
+        //CRUD read method
         public async Task<List<Consultation>> GetAllConsultationsAsync()
         {
             return (await _dbServiceGeneric.GetObjectsAsync()).ToList();
-            //return MockData.MockDataConsultation.GetAllConsultations();
         }
 
+        //CRUD update method
+        public async Task UpdateConsultationAsync(Consultation consultationN)
+        {
+            await _dbServiceGeneric.UpdateObjectAsync(consultationN);
+        }
+
+        //CRUD delete method
+        public async Task DeleteConsultationAsync(Consultation consultation)
+        {
+            Consultation consultationToBeDeleted = null;
+            if (consultation != null)
+            {
+                _consultationsList.Remove(consultation);
+                await _dbServiceGeneric.DeleteObjectAsync(consultation);
+            }
+        }
+
+        //Get all available consultation with in the present date
         public async Task<List<Consultation>> GetAvailableConsultationsAsync()
         {
             await DeleteExpiredUnbookedConsultationsAsync();
@@ -58,28 +85,7 @@ namespace CTTSite.Services.NormalService
             return await _dbServiceGeneric.GetObjectByIdAsync(ID);
         }
 
-        public async Task CreateConsultationAsync(Consultation consultation)
-        {
-            consultation.Date = consultation.Date.Date;
-            _consultationsList.Add(consultation);
-            await _dbServiceGeneric.AddObjectAsync(consultation);
-        }
-
-        public async Task DeleteConsultationAsync(Consultation consultation)
-        {
-            Consultation consultationToBeDeleted = null;
-            if (consultation != null)
-            {
-                _consultationsList.Remove(consultation);
-                await _dbServiceGeneric.DeleteObjectAsync(consultation);
-            }
-        }
-
-        public async Task UpdateConsultationAsync(Consultation consultationN)
-        {
-            await _dbServiceGeneric.UpdateObjectAsync(consultationN);
-        }
-
+        //Override Consultation and submit a consultation by email
         public async Task SubmitConsultationByEmailAsync(Consultation consultation, string email)
         {
             Consultation consultationToBeUpdated = await GetConsultationByIDAsync(consultation.ID);
@@ -92,13 +98,16 @@ namespace CTTSite.Services.NormalService
                 consultationToBeUpdated.Booked = true;
 
                 _emailService.SendEmail(new Email(consultation.ToString(), "Booking of Consultation: " + email, email));
-                // Becuase Jennie is getting spamed
-                //_emailService.SendEmail(new Email(consultation.ToString(), "Booking of Consultation: " + email, "chilterntalkingtherapies@gmail.com"));
+
+                //P.O's email
+                _emailService.SendEmail(new Email(consultation.ToString(), "Booking of Consultation: " + email, "chilterntalkingtherapies@gmail.com"));
 
                 await _dbServiceGeneric.UpdateObjectAsync(consultationToBeUpdated);
             }
         }
 
+
+        // Delete all expired unbooked consultations
         public async Task DeleteExpiredUnbookedConsultationsAsync()
         {
             List<Consultation> allConsultations = await GetAllConsultationsAsync();
