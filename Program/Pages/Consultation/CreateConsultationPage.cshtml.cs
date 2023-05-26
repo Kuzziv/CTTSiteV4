@@ -40,12 +40,6 @@ namespace CTTSite.Pages.Consultation
                 MessageColor = "red";
                 return Page();
             }
-            else if (await _consultationService.IsTimeSlotAvailableInDataBaseAsync(Consultation) == false)
-            {
-                Message = "The Time slot that you have chosen is already taken";
-                MessageColor = "red";
-                return Page();
-            }
             else if (_consultationService.IsTimeSlotCorrectEntered(Consultation) == false)
             {
                 Message = "The Time slot entered is worng";
@@ -55,6 +49,12 @@ namespace CTTSite.Pages.Consultation
             else if (_consultationService.IsTimeSlotBeforeDateNow(Consultation) == false)
             {
                 Message = "The Time slot entered is behind the present time";
+                MessageColor = "red";
+                return Page();
+            }
+            else if (await _consultationService.IsTimeSlotAvailableInDataBaseAsync(Consultation) == false)
+            {
+                Message = "The Time slot that you have chosen is already taken";
                 MessageColor = "red";
                 return Page();
             }

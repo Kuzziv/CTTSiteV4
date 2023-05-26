@@ -81,8 +81,11 @@ namespace CTTSite.Services.NormalService
 
         public async Task<CartItem> GetCartItemByIDAsync(int ID)
         {
+            // Create a new instance of the ItemDbContext to interact with the database
             using (ItemDbContext context = new ItemDbContext())
             {
+                // Retrieve a single CartItem by ID from the database asynchronously
+                // Include the associated Item entity in the result
                 return await context.CartItems
                     .Include(ci => ci.Item)
                     .FirstOrDefaultAsync((CartItem cartItem) => cartItem.ID == ID);
@@ -91,16 +94,24 @@ namespace CTTSite.Services.NormalService
 
         public async Task<List<CartItem>> GetAllCartItemsByUserIDAsync(int userID)
         {
+            // Create a new list to store the CartItems associated with the provided userID
             List<CartItem> cartItemsByUserID = new List<CartItem>();
+
+            // Create a new instance of the ItemDbContext to interact with the database
             using (ItemDbContext context = new ItemDbContext())
             {
+                // Retrieve all CartItems associated with the given userID and not marked as paid from the database asynchronously
+                // Include the associated Item entity in the results
                 List<CartItem> cartItems = await context.CartItems
                     .Include(ci => ci.Item)
                     .Where((CartItem ci) => ci.UserID == userID && !ci.Paid)
                     .ToListAsync();
 
+                // Add the retrieved CartItems to the cartItemsByUserID list
                 cartItemsByUserID.AddRange(cartItems);
             }
+
+            // Return the list of CartItems associated with the provided userID
             return cartItemsByUserID;
         }
 
