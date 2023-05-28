@@ -141,6 +141,10 @@ namespace CTTSite.Services.MockDataService
                 {
                     return false;
                 }
+                else if ((consultationInList.StartTime < consultation.StartTime) && (consultation.StartTime < consultationInList.EndTime.Subtract(duration)))
+                {
+                    return false;
+                }
             }
             return true;
         }
