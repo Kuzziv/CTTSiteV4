@@ -19,9 +19,9 @@ SET IDENTITY_INSERT [dbo].[Users] OFF
 
 INSERT INTO [dbo].[Consultations] ([Date], [StartTime], [EndTime], [UserID], [BookedNamed], [TelefonNumber], [BookedEmail], [Booked])
 VALUES
-    (CAST(GETDATE(day, -2) AS DATE), '10:00:00', '11:00:00', 1, 'Mads', '61675837', 'Hifnh@live.dk', 1),
-    (CAST(GETDATE(day, -2) AS DATE), '12:00:00', '13:00:00', 1, 'Mille', '26859241', 'Mille@live.dk', 1),
-    (CAST(GETDATE(day, -2) AS DATE), '14:00:00', '15:00:00', 1, 'Canty', '28475281', 'Canty@live.dk', 1),
+    (CAST(DATEADD(day, -2, GETDATE()) AS DATE), '10:00:00', '11:00:00', 1, 'Mads', '61675837', 'Hifnh@live.dk', 1),
+    (CAST(DATEADD(day, -2, GETDATE()) AS DATE), '12:00:00', '13:00:00', 1, 'Mille', '26859241', 'Mille@live.dk', 1),
+    (CAST(DATEADD(day, -2, GETDATE()) AS DATE), '14:00:00', '15:00:00', 1, 'Canty', '28475281', 'Canty@live.dk', 1),
     (CAST(DATEADD(day, -1, GETDATE()) AS DATE), '10:00:00', '11:00:00', 1, '', '', '', 0),
     (CAST(DATEADD(day, -1, GETDATE()) AS DATE), '12:00:00', '13:00:00', 1, '', '', '', 0),
     (CAST(DATEADD(day, -1, GETDATE()) AS DATE), '14:00:00', '15:00:00', 1, '', '', '', 0),
