@@ -7,6 +7,7 @@ using System.Globalization;
 
 namespace CTTSite.Pages.Consultation
 {
+    //Made by Mads
     [Authorize(Roles = "admin")]
     public class CreateConsultationModel : PageModel
     {
@@ -34,36 +35,42 @@ namespace CTTSite.Pages.Consultation
             Consultation.TelefonNumber = "";
             Consultation.BookedEmail = "";
             Consultation.Booked = false;
+
+            // Check if the date is in the past
             if (_consultationService.IsDateWithinPresentDate(Consultation) == false)
             {
                 Message = "You can't create a consultation in the past";
                 MessageColor = "red";
                 return Page();
             }
+            // Check if the time slot is correct
             else if (_consultationService.IsTimeSlotCorrectEntered(Consultation) == false)
             {
-                Message = "The Time slot entered is worng";
+                Message = "The time slot entered is wrong";
                 MessageColor = "red";
                 return Page();
             }
+            // Check if the time slot is before the present time
             else if (_consultationService.IsTimeSlotBeforeDateNow(Consultation) == false)
             {
-                Message = "The Time slot entered is behind the present time";
+                Message = "The time slot entered is behind the present time";
                 MessageColor = "red";
                 return Page();
             }
+            // Check if the time slot is available in the database
             else if (await _consultationService.IsTimeSlotAvailableInDataBaseAsync(Consultation) == false)
             {
-                Message = "The Time slot that you have chosen is already taken";
+                Message = "The time slot that you have chosen is already taken";
                 MessageColor = "red";
                 return Page();
             }
             else
             {
+                // Create the consultation
                 await _consultationService.CreateConsultationAsync(Consultation);
                 return RedirectToPage("GetAllConsultaionsPage");
             }
         }
-        
+
     }
 }

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CTTSite.Pages.Consultation
 {
+    //Made by Mads
     public class BookConsultationPageModel : PageModel
     {
         private readonly IConsultationService _consultationService;

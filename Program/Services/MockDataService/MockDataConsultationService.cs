@@ -4,6 +4,7 @@ using CTTSite.Services.Interface;
 
 namespace CTTSite.Services.MockDataService
 {
+    //Made by Mads
     public class MockDataConsultationService
     {
         public List<Consultation> ConsultationsList;

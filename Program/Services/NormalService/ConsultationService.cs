@@ -70,16 +70,19 @@ namespace CTTSite.Services.NormalService
             return availableConsultations;
         }
 
+        //Sort the consultations by date and then by start time
         public List<Consultation> SortConsultationsByDateTime(List<Consultation> consultations)
         {
             return consultations.OrderBy(c => c.Date).ThenBy(c => c.StartTime).ToList();
         }
 
+        //Group the consultations by the date property
         public List<IGrouping<DateTime, Consultation>> GroupConsultationsByDate(List<Consultation> consultations)
         {
             return consultations.GroupBy(c => c.Date.Date).ToList();
         }
 
+        //
         public async Task<Consultation> GetConsultationByIDAsync(int ID)
         {
             return await _dbServiceGeneric.GetObjectByIdAsync(ID);
@@ -156,6 +159,11 @@ namespace CTTSite.Services.NormalService
                 {
                     return false;
                 }
+                //check if the start time is between the start time and end time of the consultation in the database
+                else if ((consultationInList.StartTime < consultation.StartTime) && (consultation.StartTime < consultationInList.EndTime.Subtract(duration)))
+                {
+                    return false;
+                }
             }
             return true;
         }
@@ -163,7 +171,7 @@ namespace CTTSite.Services.NormalService
         // Check if the time slot is correct
         public bool IsTimeSlotCorrectEntered(Consultation consultation)
         {
-            if ((consultation.StartTime > consultation.EndTime) || (consultation.StartTime == null) || (consultation.EndTime == null))
+            if ((consultation.StartTime > consultation.EndTime) || (consultation.StartTime == null) || (consultation.EndTime == null) || (consultation.StartTime == consultation.EndTime))
             {
                 return false;
             }
