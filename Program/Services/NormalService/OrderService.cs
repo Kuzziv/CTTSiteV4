@@ -144,26 +144,41 @@ namespace CTTSite.Services.NormalService
 
         public async Task<List<CartItem>> GetOldOrderByOrderIDAsync(int orderID)
         {
+            //Retrieve all CartItem_Order objects from the database
             IEnumerable<DAO.CartItem_Order> CIO = await _dBServiceGenericCIO.GetObjectsAsync();
+
+            //Retrieve all CartItem objects from the database
             IEnumerable<CartItem> cartItems = await _dBServiceGenericCartItem.GetObjectsAsync();
 
+            //Filter CartItem_Order objects based on the given order ID
             CIO = CIO.Where(cartItem_Order => cartItem_Order.OrderID == orderID).ToList();
+
+            //Retrieve the corresponding CartItem objects for the filtered CartItem_Order objects
             List<CartItem> cartItemList = cartItems.Where(cartItem => CIO.Any(cartItem_Order => cartItem_Order.CartItemID == cartItem.ID)).ToList();
 
-            // Include the associated Item for each CartItem
+            //Include the associated Item for each CartItem
             foreach (CartItem cartItem in cartItemList)
             {
+                // Retrieve the associated Item for the CartItem
                 cartItem.Item = await _itemService.GetItemByIDAsync(cartItem.ItemID);
             }
 
+            //Return the list of CartItem objects
             return cartItemList;
         }
 
         public async Task<int> GetLatestOrderFromUserAsync(string userName)
         {
+            //Retrieve the user object based on the provided user name
             Models.User user = _userService.GetUserByEmail(userName);
+
+            //Retrieve all orders associated with the user
             List<Order> userOrders = await GetOrdersByUserIDAsync(user.Id);
+
+            //Sort the orders in descending order based on the order ID and retrieve the latest order
             Order latestOrder = userOrders.OrderByDescending(order => order.ID).FirstOrDefault();
+
+            //Return the ID of the latest order if it exists, otherwise return 0
             return latestOrder?.ID ?? 0;
         }
 
@@ -189,7 +204,7 @@ namespace CTTSite.Services.NormalService
             if(orderToBeSend != null)
             {
                 _emailService.SendEmail(new Email(orderToBeSend.ToString(), "Order Cancelled, Your order has been cancelled. Please contact us if you have any questions. " + email, email));
-                // Becuase Jennie is getting spamed
+                //Becuase Jennie is getting spamed
                 //_emailService.SendEmail(new Email(orderToBeSend.ToString(), "Order Cancelled" + email, "chilterntalkingtherapies@gmail.com"));               
             }
         }
