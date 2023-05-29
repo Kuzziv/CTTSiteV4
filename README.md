@@ -1,5 +1,5 @@
 
-# Please update database in the NuGet Packet Manager Console and then run the scripts in Scripts SQL folder to populate the database with data before running the application.
+# Please update database in the NuGet Packet Manager Console and then run the scripts in Scripts SQL folder in a query in CTTDB to populate the database with data before running the application.
 
 # chilterntalkingtherapies@gmail.com , Admin!88 - Admin login. Please do not use this to send emails as it will spam the PO.
 # testStaff@email.com, Test1234 - Fake email account. 
