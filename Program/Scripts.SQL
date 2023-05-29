@@ -1,4 +1,4 @@
-
+Using CTTSiteDB;
 SET IDENTITY_INSERT [dbo].[Items] ON
 INSERT INTO [dbo].[Items] ([ID], [Name], [Description], [IMG], [Price], [Stock]) VALUES (1, N'Gift Basket', N'Handmade bee bombs, handmade soap, mini notepade, handmade bracelet, hot chocolate sachet, tealight candle, fiddle toy, dried lavender, prepackaged sweets, photoframe, gloss stickers, mindful coluring sheets, doodle sheets and CBT information sheets', N'/ShopImages/Wellness.png', CAST(25.00 AS Decimal(18, 2)), 15)
 INSERT INTO [dbo].[Items] ([ID], [Name], [Description], [IMG], [Price], [Stock]) VALUES (2, N'Scented candles', N'These scented candles gives a lovely and relaxing aroma.', N'/shopImages/Candle.png', CAST(10.50 AS Decimal(18, 2)), 56)
@@ -15,6 +15,18 @@ INSERT INTO [dbo].[Users] ([Id], [Email], [Password], [Admin], [Staff]) VALUES (
 INSERT INTO [dbo].[Users] ([Id], [Email], [Password], [Admin], [Staff]) VALUES (4, N'CTT_Test@outlook.com', N'AQAAAAEAACcQAAAAEJGKSqdbn0cfW9cN8qrs/q47Qfpw/rdGp3fQIS1J+B3STESCRgjNym+DevlL5z2G8g==', 0, 1)
 INSERT INTO [dbo].[Users] ([Id], [Email], [Password], [Admin], [Staff]) VALUES (5, N'Hifnh@live.dk', N'AQAAAAEAACcQAAAAEOn/g3X+8ydm9W6gOnJQDttoOsoAm+BHx5TsbZS3PUM8ba8/IEC27E/SM6i8IT2pmA==', 0, 0)
 SET IDENTITY_INSERT [dbo].[Users] OFF
+
+INSERT INTO [dbo].[RoomBookings] ([StartDateTime], [EndDateTime], [Description], [UserEmail])
+VALUES
+    (CONCAT(CAST(DATEADD(day, -3, GETDATE()) AS DATE), ' 11:30:00'), CONCAT(CAST(DATEADD(day, -3, GETDATE()) AS DATE), ' 12:00:00'), 'Lunch', 'chilterntalkingtherapies@gmail.com'),
+    (CONCAT(CAST(DATEADD(day, -1, GETDATE()) AS DATE), ' 15:00:00'), CONCAT(CAST(DATEADD(day, -1, GETDATE()) AS DATE), ' 16:00:00'), 'Staff Meeting', 'chilterntalkingtherapies@gmail.com'),
+    (CONCAT(CAST(DATEADD(day, -1, GETDATE()) AS DATE), ' 13:45:00'), CONCAT(CAST(DATEADD(day, -1, GETDATE()) AS DATE), ' 14:45:00'), 'Art Psychotherapy', 'testStaff@email.com'),
+
+    (CONCAT(CAST(DATEADD(day, 1, GETDATE()) AS DATE), ' 12:00:00'), CONCAT(CAST(DATEADD(day, 1, GETDATE()) AS DATE), ' 12:30:00'), 'Counselling', 'testStaff@email.com'),
+    (CONCAT(CAST(DATEADD(day, 2, GETDATE()) AS DATE), ' 13:00:00'), CONCAT(CAST(DATEADD(day, 2, GETDATE()) AS DATE), ' 13:45:00'), 'Cognitive Behavioural Therapy', 'chilterntalkingtherapies@gmail.com'),
+    (CONCAT(CAST(DATEADD(day, 2, GETDATE()) AS DATE), ' 16:00:00'), CONCAT(CAST(DATEADD(day, 2, GETDATE()) AS DATE), ' 16:30:00'), 'Staff Meeting', 'chilterntalkingtherapies@gmail.com'),
+    (CONCAT(CAST(DATEADD(day, 4, GETDATE()) AS DATE), ' 14:00:00'), CONCAT(CAST(DATEADD(day, 4, GETDATE()) AS DATE), ' 14:30:00'), 'Counselling', 'testStaff@email.com'),
+    (CONCAT(CAST(DATEADD(day, 5, GETDATE()) AS DATE), ' 14:00:00'), CONCAT(CAST(DATEADD(day, 5, GETDATE()) AS DATE), ' 15:00:00'), 'Art Psychotherapy', 'testStaff@email.com')
 
 
 INSERT INTO [dbo].[Consultations] ([Date], [StartTime], [EndTime], [UserID], [BookedNamed], [TelefonNumber], [BookedEmail], [Booked])
