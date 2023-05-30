@@ -61,7 +61,7 @@ namespace CTTSite.Pages.Staff
             Password = new String(stringChars);
             _iUserService.SaveNewPassword(Password);
 
-            newUser = new Models.User(Email, passwordHasher.HashPassword(null, Password), false, true);            
+            newUser = new Models.User(Email, passwordHasher.HashPassword(null, Password), false, false);            
             if (_iUserService.AddUser(newUser).Result == true)
             {
                 await _iUserService.AddUser(newUser);

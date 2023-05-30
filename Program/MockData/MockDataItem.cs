@@ -2,6 +2,7 @@
 
 namespace CTTSite.MockData
 {
+    // Made by Mille & Mads
     public class MockDataItem
     {
         public static List<Item> Items = new List<Item>() 

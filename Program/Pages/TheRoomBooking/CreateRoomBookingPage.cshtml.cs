@@ -28,7 +28,7 @@ namespace CTTSite.Pages.TheRoomBooking
         public IActionResult OnPostAsync()
         {
             RoomBooking.UserEmail = HttpContext.User.Identity.Name;
-            if((RoomBooking != null) && (RoomBooking.Description != null))
+            if(RoomBooking != null)
             {
 				if (IRoomBookingService.CreateRoomBookingAsync(RoomBooking).Result == true)
 				{

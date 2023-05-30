@@ -9,14 +9,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CTTSite.Services.NormalService
 {
+    // Made by Mille & Mads
     public class CartItemService : ICartItemService
     {
         private readonly DBServiceGeneric<CartItem> _dBServiceGenericCartItem;
         private readonly JsonFileService<CartItem> _jsonFileService;
         private readonly IItemService _itemService;
         private readonly IUserService _userService;
-        public List<CartItem> CartItems { get; private set; }
-        public List<Item> Items { get; private set; }
+        private List<CartItem> _cartItems { get; set; }
+        private List<Item> _items { get; set; }
 
         public CartItemService(DBServiceGeneric<CartItem> dBServiceGenericCartItem, JsonFileService<CartItem> jsonFileService, IItemService itemService, IUserService userService)
         {
@@ -24,8 +25,8 @@ namespace CTTSite.Services.NormalService
             _jsonFileService = jsonFileService;
             _itemService = itemService;
             _userService = userService;
-            CartItems = GetAllCartItemsAsync().Result;
-            Items = _itemService.GetAllItemsAsync().GetAwaiter().GetResult();
+            _cartItems = GetAllCartItemsAsync().Result;
+            _items = _itemService.GetAllItemsAsync().GetAwaiter().GetResult();
         }
 
         public async Task<bool> IsCartEmptyAsync(string userEmail)
@@ -40,7 +41,6 @@ namespace CTTSite.Services.NormalService
             { 
                 return false; 
             }
-
         }
 
         public async Task<List<CartItem>> GetAllCartItemsAsync()
@@ -61,7 +61,7 @@ namespace CTTSite.Services.NormalService
             //    }
             //}
             //cartItem.ID = IDCount + 1;
-            CartItems.Add(cartItem);
+            _cartItems.Add(cartItem);
             //_jsonFileService.SaveJsonObjects(CartItems);
             await _dBServiceGenericCartItem.AddObjectAsync(cartItem);
         }
@@ -81,8 +81,11 @@ namespace CTTSite.Services.NormalService
 
         public async Task<CartItem> GetCartItemByIDAsync(int ID)
         {
+            //Create a new instance of the ItemDbContext to interact with the database
             using (ItemDbContext context = new ItemDbContext())
             {
+                //Retrieve a single CartItem by ID from the database asynchronously
+                //Include the associated Item entity in the result
                 return await context.CartItems
                     .Include(ci => ci.Item)
                     .FirstOrDefaultAsync((CartItem cartItem) => cartItem.ID == ID);
@@ -91,16 +94,24 @@ namespace CTTSite.Services.NormalService
 
         public async Task<List<CartItem>> GetAllCartItemsByUserIDAsync(int userID)
         {
+            //Create a new list to store the CartItems associated with the provided userID
             List<CartItem> cartItemsByUserID = new List<CartItem>();
+
+            //Create a new instance of the ItemDbContext to interact with the database
             using (ItemDbContext context = new ItemDbContext())
             {
+                //Retrieve all CartItems associated with the given userID and not marked as paid from the database asynchronously
+                //Include the associated Item entity in the results
                 List<CartItem> cartItems = await context.CartItems
                     .Include(ci => ci.Item)
                     .Where((CartItem ci) => ci.UserID == userID && !ci.Paid)
                     .ToListAsync();
 
+                //Add the retrieved CartItems to the cartItemsByUserID list
                 cartItemsByUserID.AddRange(cartItems);
             }
+
+            //Return the list of CartItems associated with the provided userID
             return cartItemsByUserID;
         }
 
@@ -111,7 +122,7 @@ namespace CTTSite.Services.NormalService
 
             if (cartItemToBeDeleted != null)
             {
-                CartItems.Remove(cartItemToBeDeleted);
+                _cartItems.Remove(cartItemToBeDeleted);
                 //_jsonFileService.SaveJsonObjects(CartItems);
                 await _dBServiceGenericCartItem.DeleteObjectAsync(cartItemToBeDeleted);
             }

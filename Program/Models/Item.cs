@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CTTSite.Models
 {
+    // Made by Mille & Mads
     public class Item
     {
         [Key]

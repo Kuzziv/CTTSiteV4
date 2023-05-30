@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CTTSite.DAO
 {
+    // Made by Mille & Mads
     public class CartItem_Order
     {
         [Key]

@@ -4,6 +4,7 @@ using System.Data;
 
 namespace CTTSite.Models
 {
+    // Made by Mads
     public class Consultation
     {
         [Key]

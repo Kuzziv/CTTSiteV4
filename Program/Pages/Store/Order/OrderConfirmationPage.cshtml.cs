@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CTTSite.Pages.Store.Order
 {
+    // Made by Mille & Mads
     public class OrderConfirmationPageModel : PageModel
     {
         private readonly IOrderService _orderService;

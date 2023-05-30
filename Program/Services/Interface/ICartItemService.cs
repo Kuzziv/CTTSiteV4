@@ -2,6 +2,7 @@
 
 namespace CTTSite.Services.Interface
 {
+    // Made by Mille & Mads
     public interface ICartItemService
     {
         Task<List<CartItem>> GetAllCartItemsAsync();

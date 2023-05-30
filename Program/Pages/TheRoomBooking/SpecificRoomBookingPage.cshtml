@@ -7,7 +7,7 @@
 
     @if (User.Identity != null && User.IsInRole("staff") == true)
     {
-        <div class="text-center border border-dark" style="padding-block:5%">
+            <div class="text-center border border-dark" style="width:80%; margin-inline:10%; padding-block:2%">
             <h2><b>Booked by: @Model.RoomBooking.UserEmail</b></h2><br />
             <br />
             <h2>@Model.RoomBooking.StartDateTime   -   @Model.RoomBooking.EndDateTime</h2><br />

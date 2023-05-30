@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CTTSite.Pages.Store.Shipping
 {
+    // Made by Mads
     public class SpecificShippingPageModel : PageModel
     {
         private readonly IShippingInfoService _shippingInfoService;

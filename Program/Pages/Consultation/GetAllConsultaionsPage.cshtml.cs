@@ -6,6 +6,7 @@ using System.Data;
 
 namespace CTTSite.Pages.Consultation
 {
+    //Made by Mads
     [Authorize(Roles = "admin")]
     public class GetAllConsultaionsPageModel : PageModel
     {

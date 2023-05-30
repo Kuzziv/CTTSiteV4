@@ -2,6 +2,7 @@
 
 namespace CTTSite.Services.Interface
 {
+    // Made by Mads
     public interface IShippingInfoService
     {
         Task CreateShippingInfoAsync(ShippingInfo shippingInfo);

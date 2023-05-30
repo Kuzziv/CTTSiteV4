@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CTTSite.Pages.Store.Order
 {
+    // Made by Mads
     public class CancelOrderPageModel : PageModel
     {
         private readonly IOrderService _iOrderService;

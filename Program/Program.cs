@@ -14,6 +14,7 @@ using CTTSite.EFDbContext;
 using CTTSite.Services.DB;
 using CTTSite.Models.Forms;
 using CTTSite.DAO;
+using CTTSite.Services.MockDataService;
 
 
 // Edited by Christian
@@ -22,6 +23,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+//MockData
+builder.Services.AddSingleton<MockDataConsultationService, MockDataConsultationService>();
 
 builder.Services.AddSingleton<IItemService, ItemService>();
 builder.Services.AddSingleton<IUserService, UserService>();

@@ -4,68 +4,65 @@
 }
 
 <div class="container-fluid">
-
     <div class="row">
         <div class="col-md-1"></div>
-
         <div class="col-md-10 text-center">
-
-<table class="table table-bordered table-hover table-dark" width="80%">
-    <thead>
-        <tr class="btn-secondary active">
-            <th>Order Number</th>
-            <th>Order Shipped</th>
-            <th>Order Cancelled</th>
-            <th>Total Price</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (@Model.Orders != null)
-        {
-            foreach (Models.Order order in Model.Orders)
-            {
-                <tr class="btn-secondary">
-                    <td>
-                        @order.ID
-                    </td>
-                    <td>
-                        <span class="@(order.Shipped ? "true-value" : "false-value")">
-                            @if (order.Shipped)
-                            {
-                                <i class="fa fa-check"></i>
-                            }
-                            else
-                            {
-                                <i class="fa fa-times"></i>
-                            }
-                        </span>
-                    </td>
-                    <td>
-                        <span class="@(order.Cancelled ? "true-value" : "false-value")">
-                            @if (order.Cancelled)
-                            {
-                                <i class="fa fa-check"></i>
-                            }
-                            else
-                            {
-                                <i class="fa fa-times"></i>
-                            }
-                        </span>
-                    </td>
-                    <td>
-                        £@order.TotalPrice
-                    </td>
-                    <td>
-                        <a class="btn btn-danger" type="button" asp-page="DeleteOrderPage" asp-route-id="@order.ID"><i class="fa fa-trash"></i></a>
-                        <a class="btn btn-secondary" type="button" asp-page="EditOrderPage" asp-route-id="@order.ID"><i class="fa fa-pencil-square-o"></i></a>
-                        <a class="btn btn-secondary" type="button" asp-page="/Store/Shipping/SpecificShippingPage" asp-route-id="@order.ID"><i class="fa fa-info-circle"></i></a>
-                    </td>
-                </tr>
-            }
-        }
-    </tbody>
-</table>
+            <table class="table table-bordered table-hover table-dark" width="80%">
+                <thead>
+                    <tr class="btn-secondary active">
+                        <th>Order Number</th>
+                        <th>Order Shipped</th>
+                        <th>Order Cancelled</th>
+                        <th>Total Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (@Model.Orders != null)
+                    {
+                        foreach (Models.Order order in Model.Orders)
+                        {
+                            <tr class="btn-secondary">
+                                <td>
+                                    @order.ID
+                                </td>
+                                <td>
+                                    <span class="@(order.Shipped ? "true-value" : "false-value")">
+                                        @if (order.Shipped)
+                                        {
+                                            <i class="fa fa-check"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="fa fa-times"></i>
+                                        }
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="@(order.Cancelled ? "true-value" : "false-value")">
+                                        @if (order.Cancelled)
+                                        {
+                                            <i class="fa fa-check"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="fa fa-times"></i>
+                                        }
+                                    </span>
+                                </td>
+                                <td>
+                                    £@order.TotalPrice
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger" type="button" asp-page="DeleteOrderPage" asp-route-id="@order.ID"><i class="fa fa-trash"></i></a>
+                                    <a class="btn btn-secondary" type="button" asp-page="EditOrderPage" asp-route-id="@order.ID"><i class="fa fa-pencil-square-o"></i></a>
+                                    <a class="btn btn-secondary" type="button" asp-page="/Store/Shipping/SpecificShippingPage" asp-route-id="@order.ID"><i class="fa fa-info-circle"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
         </div>
         <div class="col-md-1"></div>
     </div>

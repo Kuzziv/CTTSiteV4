@@ -9,33 +9,59 @@ using Consultation = CTTSite.Models.Consultation;
 
 namespace CTTSite.Services.NormalService
 {
+    //Made by Mads
     public class ConsultationService : IConsultationService
     {
         private readonly IEmailService _emailService;
         private readonly DBServiceGeneric<Consultation> _dbServiceGeneric;
-        private readonly JsonFileService<Consultation> _jsonFileService;
-        public List<Consultation> ConsultationsList;
+        private List<Consultation> _consultationsList;
 
-        public ConsultationService(DBServiceGeneric<Consultation> dbServiceGeneric, JsonFileService<Consultation> jsonFileService, IEmailService emailService)
+        public ConsultationService(DBServiceGeneric<Consultation> dbServiceGeneric, IEmailService emailService)
         {
             _dbServiceGeneric = dbServiceGeneric;
-            _jsonFileService = jsonFileService;
             _emailService = emailService;
-            ConsultationsList = GetAllConsultationsAsync().Result;
+            _consultationsList = GetAllConsultationsAsync().Result;
         }
 
+        //CRUD create method
+        public async Task CreateConsultationAsync(Consultation consultation)
+        {
+            consultation.Date = consultation.Date.Date;
+            _consultationsList.Add(consultation);
+            await _dbServiceGeneric.AddObjectAsync(consultation);
+        }
+
+        //CRUD read method
         public async Task<List<Consultation>> GetAllConsultationsAsync()
         {
             return (await _dbServiceGeneric.GetObjectsAsync()).ToList();
-            //return JsonFileService.GetJsonObjects().ToList();
-            //return MockData.MockDataConsultation.GetAllConsultations();
         }
 
+        //CRUD update method
+        public async Task UpdateConsultationAsync(Consultation consultationN)
+        {
+            await _dbServiceGeneric.UpdateObjectAsync(consultationN);
+        }
+
+        //CRUD delete method
+        public async Task DeleteConsultationAsync(Consultation consultation)
+        {
+            Consultation consultationToBeDeleted = null;
+            if (consultation != null)
+            {
+                _consultationsList.Remove(consultation);
+                await _dbServiceGeneric.DeleteObjectAsync(consultation);
+            }
+        }
+
+        //Get all available consultation with in the present date
         public async Task<List<Consultation>> GetAvailableConsultationsAsync()
         {
             await DeleteExpiredUnbookedConsultationsAsync();
             List<Consultation> allConsultations = await GetAllConsultationsAsync();
-            DateTime currentDateTime = DateTime.Now.Date; // Get the current date without the time
+
+            // Get the current date without the time
+            DateTime currentDateTime = DateTime.Now.Date; 
 
             List<Consultation> availableConsultations = allConsultations
                 .Where(c => !c.Booked && c.Date.Date >= currentDateTime)
@@ -44,61 +70,25 @@ namespace CTTSite.Services.NormalService
             return availableConsultations;
         }
 
+        //Sort the consultations by date and then by start time
         public List<Consultation> SortConsultationsByDateTime(List<Consultation> consultations)
         {
             return consultations.OrderBy(c => c.Date).ThenBy(c => c.StartTime).ToList();
         }
 
+        //Group the consultations by the date property
         public List<IGrouping<DateTime, Consultation>> GroupConsultationsByDate(List<Consultation> consultations)
         {
             return consultations.GroupBy(c => c.Date.Date).ToList();
         }
 
+        //
         public async Task<Consultation> GetConsultationByIDAsync(int ID)
         {
-            //foreach (Consultation consultation in ConsultationsList)
-            //{
-            //    if (consultation.ID == ID)
-            //    {
-            //        return consultation;
-            //    }
-            //}
             return await _dbServiceGeneric.GetObjectByIdAsync(ID);
         }
 
-        public async Task CreateConsultationAsync(Consultation consultation)
-        {
-            //int IDCount = 0;
-            //foreach(Consultation listConsultation in ConsultationsList)
-            //{
-            //    if(IDCount < listConsultation.ID)
-            //    {
-            //        IDCount = listConsultation.ID;
-            //    }
-            //}
-            //consultation.ID = IDCount + 1;
-            consultation.Date = consultation.Date.Date;
-            ConsultationsList.Add(consultation);
-            await _dbServiceGeneric.AddObjectAsync(consultation);
-            //_jsonFileService.SaveJsonObjects(ConsultationsList);
-        }
-
-        public async Task DeleteConsultationAsync(Consultation consultation)
-        {
-            Consultation consultationToBeDeleted = null;
-            if (consultation != null)
-            {
-                ConsultationsList.Remove(consultation);
-                //_ssonFileService.SaveJsonObjects(ConsultationsList);
-                await _dbServiceGeneric.DeleteObjectAsync(consultation);
-            }
-        }
-
-        public async Task UpdateConsultationAsync(Consultation consultationN)
-        {
-            await _dbServiceGeneric.UpdateObjectAsync(consultationN);
-        }
-
+        //Override Consultation and submit a consultation by email
         public async Task SubmitConsultationByEmailAsync(Consultation consultation, string email)
         {
             Consultation consultationToBeUpdated = await GetConsultationByIDAsync(consultation.ID);
@@ -111,13 +101,16 @@ namespace CTTSite.Services.NormalService
                 consultationToBeUpdated.Booked = true;
 
                 _emailService.SendEmail(new Email(consultation.ToString(), "Booking of Consultation: " + email, email));
-                // Becuase Jennie is getting spamed
-                //_emailService.SendEmail(new Email(consultation.ToString(), "Booking of Consultation: " + email, "chilterntalkingtherapies@gmail.com"));
+
+                //P.O's email
+                _emailService.SendEmail(new Email(consultation.ToString(), "Booking of Consultation: " + email, "chilterntalkingtherapies@gmail.com"));
 
                 await _dbServiceGeneric.UpdateObjectAsync(consultationToBeUpdated);
             }
         }
 
+
+        // Delete all expired unbooked consultations
         public async Task DeleteExpiredUnbookedConsultationsAsync()
         {
             List<Consultation> allConsultations = await GetAllConsultationsAsync();
@@ -125,8 +118,9 @@ namespace CTTSite.Services.NormalService
             DateTime currentDateTime = DateTime.Now;
 
             List<Consultation> expiredUnbookedConsultations = allConsultations
-                .Where(c => (!c.Booked && c.Date < currentDateTime.Date) || (!c.Booked && c.Date == currentDateTime.Date && c.StartTime < currentDateTime.TimeOfDay))
-                .ToList();
+                .Where(c => (!c.Booked && c.Date < currentDateTime.Date) 
+                || (!c.Booked && c.Date == currentDateTime.Date && c.StartTime < currentDateTime.TimeOfDay)
+                ).ToList();
 
             foreach (Consultation consultation in expiredUnbookedConsultations)
             {
@@ -136,7 +130,7 @@ namespace CTTSite.Services.NormalService
         }
 
         //check for date is available
-        public bool IsDateWithInPresentDate(Consultation consultation)
+        public bool IsDateWithinPresentDate(Consultation consultation)
         {
             if (consultation == null)
             {
@@ -155,12 +149,18 @@ namespace CTTSite.Services.NormalService
         //check for time slot is available in database depeding on the date
         public async Task<bool> IsTimeSlotAvailableInDataBaseAsync(Consultation consultation)
         {
-            TimeSpan duration = TimeSpan.FromMinutes(1); // Assuming you want to subtract 1 minutes
+            //subtracting 1 minutes from the end time to check if the time slot is available in the database
+            TimeSpan duration = TimeSpan.FromMinutes(1);
             List<Consultation> allConsultations = await GetAllConsultationsAsync();
             allConsultations = allConsultations.Where(c => c.Date == consultation.Date && (c.ID != consultation.ID)).ToList();
             foreach (Consultation consultationInList in allConsultations)
             {
                 if ((consultationInList.StartTime == consultation.StartTime) || (consultationInList.EndTime.Subtract(duration) == consultation.StartTime))
+                {
+                    return false;
+                }
+                //check if the start time is between the start time and end time of the consultation in the database
+                else if ((consultationInList.StartTime < consultation.StartTime) && (consultation.StartTime < consultationInList.EndTime.Subtract(duration)))
                 {
                     return false;
                 }
@@ -171,7 +171,7 @@ namespace CTTSite.Services.NormalService
         // Check if the time slot is correct
         public bool IsTimeSlotCorrectEntered(Consultation consultation)
         {
-            if ((consultation.StartTime > consultation.EndTime) || (consultation.StartTime == null) || (consultation.EndTime == null))
+            if ((consultation.StartTime > consultation.EndTime) || (consultation.StartTime == null) || (consultation.EndTime == null) || (consultation.StartTime == consultation.EndTime))
             {
                 return false;
             }

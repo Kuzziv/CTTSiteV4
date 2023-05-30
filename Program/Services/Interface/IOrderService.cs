@@ -3,6 +3,7 @@ using CTTSite.Models;
 
 namespace CTTSite.Services.Interface
 {
+    // Made by Mads
     public interface IOrderService
     {
         Task<List<Order>> GetAllOrdersAsync();
