@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CTTSite.Services.NormalService
 {
+    // Made by Mads
     public class ShippingInfoService : IShippingInfoService
     {
         private readonly JsonFileService<ShippingInfo> _jsonFileService;

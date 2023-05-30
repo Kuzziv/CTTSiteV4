@@ -62,6 +62,7 @@ namespace UintTester
 
         // Tests the GetConsultationByID method
         // We use object 9 because we know it exists in our mockData object and we know it's not going to be remove because it's one day ahead
+
         [TestMethod]
         public void Test_GetConsultationByID()
         {

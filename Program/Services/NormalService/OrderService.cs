@@ -12,6 +12,7 @@ using Org.BouncyCastle.Asn1.X509;
 
 namespace CTTSite.Services.NormalService
 {
+    // Made by Mads
     public class OrderService : IOrderService
     {
         private readonly DBServiceGeneric<Order> _dBServiceGeneric;

@@ -5,6 +5,7 @@ using CTTSite.Services.JSON;
 
 namespace CTTSite.Services.NormalService
 {
+    // Made by Mille & Mads
     public class ItemService : IItemService
     {
         private readonly DBServiceGeneric<Item> _dBServiceGeneric;

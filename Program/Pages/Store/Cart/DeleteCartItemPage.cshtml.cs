@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CTTSite.Pages.Store.Cart
 {
+    // Made by Mads
     public class DeleteCartItemPageModel : PageModel
     {
         private readonly ICartItemService _cartItemService;

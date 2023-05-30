@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CTTSite.Pages.Store.Product
 {
+    // Made by Mille & Mads
     public class SpecificProductPageModel : PageModel
     {
         private readonly IItemService _itemService;

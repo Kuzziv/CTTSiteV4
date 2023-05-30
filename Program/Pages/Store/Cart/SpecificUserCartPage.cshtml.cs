@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CTTSite.Pages.Store.Cart
 {
+    // Made by Mille & Mads
     public class SpecificUserCartPageModel : PageModel
     {
         private readonly ICartItemService _cartItemService;

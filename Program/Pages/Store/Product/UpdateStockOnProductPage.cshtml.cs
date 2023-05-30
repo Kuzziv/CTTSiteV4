@@ -7,6 +7,7 @@ using System.Data;
 
 namespace CTTSite.Pages.Store.Product
 {
+    // Made by Mads
     [Authorize(Roles = "admin")]
     public class UpdateStockOnProductPageModel : PageModel
     {

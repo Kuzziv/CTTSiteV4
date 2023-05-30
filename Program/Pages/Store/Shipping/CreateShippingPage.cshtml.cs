@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CTTSite.Pages.Store.Shipping
 {
+    // Made by Mille & Mads
     public class CreateShippingPageModel : PageModel
     {
         private readonly IShippingInfoService _shippingInfoService;

@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CTTSite.Models
 {
+    // Made by Mads
     public class Order
     {
         [Key]

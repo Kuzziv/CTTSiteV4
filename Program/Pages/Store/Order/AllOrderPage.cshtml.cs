@@ -6,6 +6,7 @@ using System.Data;
 
 namespace CTTSite.Pages.Store.Order
 {
+    // Made by Mille & Mads
     [Authorize(Roles = "admin")]
     public class AllOrderPageModel : PageModel
     {

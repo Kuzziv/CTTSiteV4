@@ -8,6 +8,7 @@ using CTTSite.Models.Forms;
 
 namespace CTTSite.EFDbContext
 {
+    // Made by Mille, Mads 6 Christian
     public class ItemDbContext : DbContext
     {
 

@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CTTSite.Services.NormalService
 {
+    // Made by Mille & Mads
     public class CartItemService : ICartItemService
     {
         private readonly DBServiceGeneric<CartItem> _dBServiceGenericCartItem;

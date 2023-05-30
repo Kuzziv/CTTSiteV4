@@ -14,7 +14,6 @@ namespace CTTSite.Services.MockDataService
             ConsultationsList = GetAllConsultations();
         }
 
-
         public List<Consultation> GetAllConsultations()
         {
             return MockData.MockDataConsultation.GetAllConsultations();
@@ -23,7 +22,9 @@ namespace CTTSite.Services.MockDataService
         public List<Consultation> GetAvailableConsultations()
         {
             List<Consultation> allConsultations = ConsultationsList;
-            DateTime currentDateTime = DateTime.Now.Date; // Get the current date without the time
+
+            //Get the current date without the time
+            DateTime currentDateTime = DateTime.Now.Date; 
 
             List<Consultation> availableConsultations = allConsultations
                 .Where(c => !c.Booked && c.Date.Date >= currentDateTime)
@@ -132,7 +133,9 @@ namespace CTTSite.Services.MockDataService
 
         public bool IsTimeSlotAvailableInDataBase(Consultation consultation)
         {
-            TimeSpan duration = TimeSpan.FromMinutes(1); // Assuming you want to subtract 1 minutes
+            //Subtract 1 minute for the timespan
+            TimeSpan duration = TimeSpan.FromMinutes(1); 
+
             List<Consultation> allConsultations = ConsultationsList;
             allConsultations = allConsultations.Where(c => c.Date == consultation.Date && (c.ID != consultation.ID)).ToList();
             foreach (Consultation consultationInList in allConsultations)

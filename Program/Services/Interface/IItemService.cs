@@ -2,6 +2,7 @@
 
 namespace CTTSite.Services
 {
+    // Made by Mille & Mads
     public interface IItemService
     {
         Task<List<Item>> GetAllItemsAsync();
