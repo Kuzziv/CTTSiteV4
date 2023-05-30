@@ -9,7 +9,7 @@ using Consultation = CTTSite.Models.Consultation;
 
 namespace CTTSite.Services.NormalService
 {
-    //Made by Mads
+    // Made by Mads
     public class ConsultationService : IConsultationService
     {
         private readonly IEmailService _emailService;
@@ -23,7 +23,7 @@ namespace CTTSite.Services.NormalService
             _consultationsList = GetAllConsultationsAsync().Result;
         }
 
-        //CRUD create method
+        // CRUD create method
         public async Task CreateConsultationAsync(Consultation consultation)
         {
             consultation.Date = consultation.Date.Date;
@@ -31,19 +31,19 @@ namespace CTTSite.Services.NormalService
             await _dbServiceGeneric.AddObjectAsync(consultation);
         }
 
-        //CRUD read method
+        // CRUD read method
         public async Task<List<Consultation>> GetAllConsultationsAsync()
         {
             return (await _dbServiceGeneric.GetObjectsAsync()).ToList();
         }
 
-        //CRUD update method
+        // CRUD update method
         public async Task UpdateConsultationAsync(Consultation consultationN)
         {
             await _dbServiceGeneric.UpdateObjectAsync(consultationN);
         }
 
-        //CRUD delete method
+        // CRUD delete method
         public async Task DeleteConsultationAsync(Consultation consultation)
         {
             Consultation consultationToBeDeleted = null;
@@ -54,7 +54,7 @@ namespace CTTSite.Services.NormalService
             }
         }
 
-        //Get all available consultation with in the present date
+        // Get all available consultation with in the present date
         public async Task<List<Consultation>> GetAvailableConsultationsAsync()
         {
             await DeleteExpiredUnbookedConsultationsAsync();
@@ -70,25 +70,25 @@ namespace CTTSite.Services.NormalService
             return availableConsultations;
         }
 
-        //Sort the consultations by date and then by start time
+        // Sort the consultations by date and then by start time
         public List<Consultation> SortConsultationsByDateTime(List<Consultation> consultations)
         {
             return consultations.OrderBy(c => c.Date).ThenBy(c => c.StartTime).ToList();
         }
 
-        //Group the consultations by the date property
+        // Group the consultations by the date property
         public List<IGrouping<DateTime, Consultation>> GroupConsultationsByDate(List<Consultation> consultations)
         {
             return consultations.GroupBy(c => c.Date.Date).ToList();
         }
 
-        //
+
         public async Task<Consultation> GetConsultationByIDAsync(int ID)
         {
             return await _dbServiceGeneric.GetObjectByIdAsync(ID);
         }
 
-        //Override Consultation and submit a consultation by email
+        // Override Consultation and submit a consultation by email
         public async Task SubmitConsultationByEmailAsync(Consultation consultation, string email)
         {
             Consultation consultationToBeUpdated = await GetConsultationByIDAsync(consultation.ID);
@@ -102,8 +102,8 @@ namespace CTTSite.Services.NormalService
 
                 _emailService.SendEmail(new Email(consultation.ToString(), "Booking of Consultation: " + email, email));
 
-                //P.O's email
-                _emailService.SendEmail(new Email(consultation.ToString(), "Booking of Consultation: " + email, "chilterntalkingtherapies@gmail.com"));
+                // P.O's email
+                //_emailService.SendEmail(new Email(consultation.ToString(), "Booking of Consultation: " + email, "chilterntalkingtherapies@gmail.com"));
 
                 await _dbServiceGeneric.UpdateObjectAsync(consultationToBeUpdated);
             }
@@ -129,7 +129,7 @@ namespace CTTSite.Services.NormalService
             }
         }
 
-        //check for date is available
+        // Check for date is available
         public bool IsDateWithinPresentDate(Consultation consultation)
         {
             if (consultation == null)
@@ -146,10 +146,10 @@ namespace CTTSite.Services.NormalService
             }
         }
 
-        //check for time slot is available in database depeding on the date
+        // Check for time slot is available in database depeding on the date
         public async Task<bool> IsTimeSlotAvailableInDataBaseAsync(Consultation consultation)
         {
-            //subtracting 1 minutes from the end time to check if the time slot is available in the database
+            // Subtracting 1 minutes from the end time to check if the time slot is available in the database
             TimeSpan duration = TimeSpan.FromMinutes(1);
             List<Consultation> allConsultations = await GetAllConsultationsAsync();
             allConsultations = allConsultations.Where(c => c.Date == consultation.Date && (c.ID != consultation.ID)).ToList();
@@ -159,7 +159,7 @@ namespace CTTSite.Services.NormalService
                 {
                     return false;
                 }
-                //check if the start time is between the start time and end time of the consultation in the database
+                // Check if the start time is between the start time and end time of the consultation in the database
                 else if ((consultationInList.StartTime < consultation.StartTime) && (consultation.StartTime < consultationInList.EndTime.Subtract(duration)))
                 {
                     return false;

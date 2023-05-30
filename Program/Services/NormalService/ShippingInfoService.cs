@@ -93,6 +93,7 @@ namespace CTTSite.Services.NormalService
 
             if (shippingInfoToBeSend != null)
             {
+
                 _emailService.SendEmail(new Email(shippingInfo.ToString(), $"Shipping for order: " + shippingInfo.OrderID + " " + email, email));
                 // Becuase Jennie is getting spamed
                 //_emailService.SendEmail(new Email(shippingInfo.ToString(), $"Shipping for order: " + shippingInfo.OrderID + " " + email, "chilterntalkingtherapies@gmail.com"));

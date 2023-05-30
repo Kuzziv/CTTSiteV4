@@ -1,4 +1,3 @@
-Using CTTSiteDB;
 SET IDENTITY_INSERT [dbo].[Items] ON
 INSERT INTO [dbo].[Items] ([ID], [Name], [Description], [IMG], [Price], [Stock]) VALUES (1, N'Gift Basket', N'Handmade bee bombs, handmade soap, mini notepade, handmade bracelet, hot chocolate sachet, tealight candle, fiddle toy, dried lavender, prepackaged sweets, photoframe, gloss stickers, mindful coluring sheets, doodle sheets and CBT information sheets', N'/ShopImages/Wellness.png', CAST(25.00 AS Decimal(18, 2)), 15)
 INSERT INTO [dbo].[Items] ([ID], [Name], [Description], [IMG], [Price], [Stock]) VALUES (2, N'Scented candles', N'These scented candles gives a lovely and relaxing aroma.', N'/shopImages/Candle.png', CAST(10.50 AS Decimal(18, 2)), 56)
