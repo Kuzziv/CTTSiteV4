@@ -40,8 +40,7 @@ namespace CTTSite.Pages.Consultation
                 await _consultationService.SubmitConsultationByEmailAsync(Consultation, Consultation.BookedEmail);
                 return RedirectToPage("AvailableConsultationsPage");
             }
-            await _consultationService.SubmitConsultationByEmailAsync(Consultation, Consultation.BookedEmail);
-            return RedirectToPage("AvailableConsultationsPage");
+            return Page();
         }
     }
 }

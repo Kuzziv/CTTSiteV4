@@ -5,7 +5,7 @@
     "Description": "Handmade bee bombs, handmade soap, mini notepade, handmade bracelet, hot chocolate sachet, tealight candle, fiddle toy, dried lavender, prepackaged sweets, photoframe, gloss stickers, mindful coluring sheets, doodle sheets and CBT information sheets",
     "IMG": "/ShopImages/Wellness.png",
     "Price": 25.00,
-    "Stock": 12
+    "Stock": 15
   },
   {
     "ID": 2,
@@ -21,7 +21,7 @@
     "Description": "Great book to take with you everywhere for a quick read.",
     "IMG": "/shopImages/HyggeBook.png",
     "Price": 29.00,
-    "Stock": 74
+    "Stock": 75
   },
   {
     "ID": 4,
@@ -42,9 +42,9 @@
   {
     "ID": 6,
     "Name": "Mic",
-    "Description": "fgsd",
+    "Description": "This gift basket is perfect for self-care",
     "IMG": "NoIMG",
-    "Price": 58.00,
-    "Stock": 85
+    "Price": 599.00,
+    "Stock": 87
   }
 ]
