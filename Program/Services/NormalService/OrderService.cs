@@ -73,7 +73,12 @@ namespace CTTSite.Services.NormalService
 
         public async Task<List<Order>> GetOrdersByUserIDAsync(int userID)
         {
-            return await Task.Run(() => _orders.Where(order => order.UserID == userID && !order.Cancelled).ToList());
+            List<Order> TempListOrders = new List<Order>();
+            using (ItemDbContext context = new ItemDbContext())
+            {
+                TempListOrders = await context.Orders.Where(order => order.UserID == userID && !order.Cancelled).ToListAsync();
+            }
+            return TempListOrders;
         }
 
         public async Task<bool> IsOrderEmptyAsync(string userEmail)

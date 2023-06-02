@@ -29,9 +29,18 @@
                                 <td>
                                     £@order.TotalPrice
                                 </td>
-                                <td>
-                                    <a class="btn btn-danger" type="button" asp-page="CancelOrderPage" asp-route-id="@order.ID"><i class="fa fa-trash"></i></a>
-                                    <a class="btn btn-secondary" type="button" asp-page="SpecificUserOldOrderPage" asp-route-id="@order.ID"><i class="fa fa-info-circle"></i></a>
+                                <td class="d-flex justify-content-around align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        @if (order.Shipped == true)
+                                        {
+                                            <p class="mr-2"><span class="badge badge-success">Order has benn shipped</span></p>
+                                        }
+                                        <a class="btn btn-secondary" type="button" asp-page="SpecificUserOldOrderPage" asp-route-id="@order.ID"><i class="fa fa-info-circle"></i></a>
+                                        @if (order.Shipped != true)
+                                        {
+                                            <a class="btn btn-danger ml-2" type="button" asp-page="CancelOrderPage" asp-route-id="@order.ID"><i class="fa fa-trash"></i></a>
+                                        }
+                                    </div>
                                 </td>
                             </tr>
                         }
