@@ -209,7 +209,7 @@ namespace CTTSite.Services.NormalService
 
             if(orderToBeSend != null)
             {
-                //_emailService.SendEmail(new Email(orderToBeSend.ToString(), "Order Cancelled, Your order has been cancelled. Please contact us if you have any questions. " + email, email));
+                _emailService.SendEmail(new Email(orderToBeSend.ToString(), "Order Cancelled, Your order has been cancelled. Please contact us if you have any questions. " + email, email));
                 // Becuase Jennie is getting spamed
                 //_emailService.SendEmail(new Email(orderToBeSend.ToString(), "Order Cancelled" + email, "chilterntalkingtherapies@gmail.com"));               
             }
