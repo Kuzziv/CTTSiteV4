@@ -13,6 +13,9 @@ namespace CTTSite.Pages.Store.Order
         private readonly IOrderService _orderService;
         public List<Models.Order> Orders;
 
+        [BindProperty]
+        public string SearchString { get; set; }
+
         public AllOrderPageModel(IOrderService iOrderService)
         {
             _orderService = iOrderService;
@@ -21,6 +24,10 @@ namespace CTTSite.Pages.Store.Order
         public async Task OnGetAsync()
         {
             Orders = await _orderService.GetAllOrdersAsync();
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                Orders = _orderService.GetOrdersByID(SearchString); 
+            }
         }
     }
 }

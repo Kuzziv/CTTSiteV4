@@ -214,5 +214,16 @@ namespace CTTSite.Services.NormalService
                 //_emailService.SendEmail(new Email(orderToBeSend.ToString(), "Order Cancelled" + email, "chilterntalkingtherapies@gmail.com"));               
             }
         }
+
+        public List<Order> GetOrdersByID(string searchQuery)
+        {
+            List<Order> TempListOrders = new List<Order>();
+            using (ItemDbContext context = new ItemDbContext())
+            {
+                TempListOrders = context.Orders.Where(order => order.ID.ToString().Contains(searchQuery)).ToList();
+            }
+            return TempListOrders;
+
+        }
     }
 }
