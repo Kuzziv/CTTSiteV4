@@ -217,7 +217,7 @@ namespace CTTSite.Services.NormalService
 
         public async Task<List<Order>> GetOrdersByIDAsync(string searchString)
         {
-            var allOrders = await GetAllOrdersAsync();
+            List<Order> allOrders = await GetAllOrdersAsync();
 
             if (string.IsNullOrEmpty(searchString))
             {
@@ -226,8 +226,19 @@ namespace CTTSite.Services.NormalService
             }
 
             // Filter the orders by order number
-            var filteredOrders = allOrders.Where(order => order.ID.ToString() == searchString).ToList();
+            List<Order> filteredOrders = allOrders.Where(order => order.ID.ToString() == searchString).ToList();
             return filteredOrders;
         }
+
+        public async Task<List<Order>> GetAllUnShippedOrdersAsync()
+        {
+            List<Order> allOrders = await GetAllOrdersAsync();
+
+            // Filter the orders by unshipped
+            List<Order> filteredOrders = allOrders.Where(order => order.Shipped == false).ToList();
+            return filteredOrders;
+        }
+
+
     }
 }

@@ -8,12 +8,20 @@
         <div class="col-md-1"></div>
         <div class="col-md-10 text-center">
             <div class="mb-3">
-                <form method="post" class="form-inline">
-                    <div class="input-group mb-3">
-                        <input asp-for="SearchString" class="form-control mr-1" placeholder="Enter Order ID" />
-                        <input type="submit" asp-page-handler="SearchOrder" value="Search" class="btn btn-dark" />
+                <div class="row">
+                    <div class="col-3">
+                        <form method="post" class="form-inline">
+                            <div class="input-group mb-3">
+                                <input asp-for="SearchString" class="form-control mr-1" placeholder="Enter Order ID" />
+                                <input type="submit" asp-page-handler="SearchOrder" value="Search" class="btn btn-dark" />
+                            </div>
+                        </form>
+                        <p>
+                            <a class="btn btn-dark" title="See All Orders" asp-page-handler="All">See All Orders</a>
+                            <a class="btn btn-dark" title="See All Unshipped Orders" asp-page-handler="UnShipped">See All Unshipped Orders</a>
+                        </p>
                     </div>
-                </form>
+                </div>
             </div>
             <table class="table table-bordered table-hover table-dark" width="80%">
                 <thead>

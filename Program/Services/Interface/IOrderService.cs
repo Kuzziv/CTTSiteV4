@@ -19,5 +19,6 @@ namespace CTTSite.Services.Interface
         Task SubmitCancelOrderByEmailAsync(int ID, string email);
         Task<bool> IsOrderEmptyAsync(string userEmail);
         Task<List<Order>> GetOrdersByIDAsync(string searchQuery);
+        Task<List<Order>> GetAllUnShippedOrdersAsync();
     }
 }

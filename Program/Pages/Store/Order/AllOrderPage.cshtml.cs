@@ -32,5 +32,17 @@ namespace CTTSite.Pages.Store.Order
             Orders = await _orderService.GetAllOrdersAsync();
             return Page();
         }
+
+        public async Task<IActionResult> OnGetAllAsync()
+        {
+            Orders = await _orderService.GetAllOrdersAsync();
+            return Page();
+        }
+
+        public async Task<IActionResult> OnGetUnShippedAsync()
+        {
+            Orders = await _orderService.GetAllUnShippedOrdersAsync();
+            return Page();
+        }
     }
 }
