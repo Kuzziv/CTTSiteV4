@@ -8,9 +8,11 @@
         <div class="col-md-1"></div>
         <div class="col-md-10 text-center">
             <div class="mb-3">
-                <form method="get" class="form-inline">
-                    <input type="text" class="form-control mr-sm-2" placeholder="Search by Order Number" name="SearchString" value="@Model.SearchString" />
-                    <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+                <form method="post" class="form-inline">
+                    <div class="input-group mb-3">
+                        <input asp-for="SearchString" class="form-control mr-1" placeholder="Enter Order ID" />
+                        <input type="submit" asp-page-handler="SearchOrder" value="Search" class="btn btn-dark" />
+                    </div>
                 </form>
             </div>
             <table class="table table-bordered table-hover table-dark" width="80%">

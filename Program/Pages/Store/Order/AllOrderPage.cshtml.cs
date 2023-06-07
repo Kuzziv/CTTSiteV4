@@ -21,13 +21,16 @@ namespace CTTSite.Pages.Store.Order
             _orderService = iOrderService;
         }
 
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnPostSearchOrderAsync()
+        {
+            Orders = await _orderService.GetOrdersByIDAsync(SearchString);
+            return Page();
+        }
+
+        public async Task<IActionResult> OnGetAsync()
         {
             Orders = await _orderService.GetAllOrdersAsync();
-            if (!string.IsNullOrEmpty(SearchString))
-            {
-                Orders = _orderService.GetOrdersByID(SearchString); 
-            }
+            return Page();
         }
     }
 }

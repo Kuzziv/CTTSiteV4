@@ -215,15 +215,19 @@ namespace CTTSite.Services.NormalService
             }
         }
 
-        public List<Order> GetOrdersByID(string searchQuery)
+        public async Task<List<Order>> GetOrdersByIDAsync(string searchString)
         {
-            List<Order> TempListOrders = new List<Order>();
-            using (ItemDbContext context = new ItemDbContext())
-            {
-                TempListOrders = context.Orders.Where(order => order.ID.ToString().Contains(searchQuery)).ToList();
-            }
-            return TempListOrders;
+            var allOrders = await GetAllOrdersAsync();
 
+            if (string.IsNullOrEmpty(searchString))
+            {
+                // Return all orders if the search string is empty
+                return allOrders;
+            }
+
+            // Filter the orders by order number
+            var filteredOrders = allOrders.Where(order => order.ID.ToString() == searchString).ToList();
+            return filteredOrders;
         }
     }
 }
