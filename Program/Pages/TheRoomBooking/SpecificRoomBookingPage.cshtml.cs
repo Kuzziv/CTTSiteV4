@@ -1,11 +1,14 @@
 using CTTSite.Models;
 using CTTSite.Services.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Data;
 
 namespace CTTSite.Pages.TheRoomBooking
 {
     // Made by Mille
+    [Authorize(Roles = "staff")]
     public class SpecificRoomBookingPageModel : PageModel
     {
         public IRoomBookingService IRoomBookingService { get; set; }
