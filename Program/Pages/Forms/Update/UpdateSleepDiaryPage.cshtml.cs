@@ -35,7 +35,7 @@ namespace CTTSite.Pages.Forms
             bool filledOut = false;
 
             
-            if ((formSleepDiary.Day2_TimeWokenUpInMorning == "Please Fill Out Before Submission") || (formSleepDiary.Day5_TotalTimeSleeping == "Please Fill Out Before Submission") || (formSleepDiary.Day7_HowRestedDoYouFeel == "Please Fill Out Before Submission"))
+            if ((formSleepDiary.Day2_TimeWokenUpInMorning == "Please Fill Out") || (formSleepDiary.Day5_TotalTimeSleeping == "Please Fill Out") || (formSleepDiary.Day7_HowRestedDoYouFeel == "Please Fill Out"))
             {
                 filledOut = false;
                 message = "Please fill out the form before submission or save the form for later";                   

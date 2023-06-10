@@ -38,7 +38,7 @@ namespace CTTSite.Pages.Forms
 
            
             
-            if ((formHotCrossBun.Emotions == "Please Fill Out Before Submission") || (formHotCrossBun.Thoughts == "Please Fill Out Before Submission") || (formHotCrossBun.Physical == "Please Fill Out Before Submission") || (formHotCrossBun.Behaviours == "Please Fill Out Before Submission"))
+            if ((formHotCrossBun.Emotions == "Please Fill Out") || (formHotCrossBun.Thoughts == "Please Fill Out") || (formHotCrossBun.Physical == "Please Fill Out") || (formHotCrossBun.Behaviours == "Please Fill Out"))
             {
                 filledOut = false;
                 message = "Please fill out the form before submission or save the form for later";
