@@ -4,7 +4,7 @@ using CTTSite.Services.JSON;
 using CTTSite.MockData;
 using Microsoft.AspNetCore.Http;
 using CTTSite.Services.DB;
-
+using System.Runtime.CompilerServices;
 
 namespace CTTSite.Services.NormalService
 {
@@ -49,13 +49,7 @@ namespace CTTSite.Services.NormalService
         private DBServiceGeneric<User> DBServiceGeneric { get; set; }
 
         #endregion
-
-        /// <summary>
-        /// The new unhashed password that is generated when a user requests a new password
-        /// </summary>
-        private string _newPassword { get; set; }
-
-        
+   
 
         public UserService(DBServiceGeneric<User> dBServiceGeneric, IEmailService emailService)
         {
@@ -64,7 +58,7 @@ namespace CTTSite.Services.NormalService
             _admins = GetAdmins();
             _staff = GetStaff();
             _clients = GetClients();
-            _newPassword = "";
+         
             EmailService = emailService;
         }
 
@@ -339,39 +333,17 @@ namespace CTTSite.Services.NormalService
         /// Resets a users password and sends it to their email
         /// </summary>
         /// <param name="email"></param>
-        public void ForgottenPassword(string email)
+        public void ForgottenPassword(string email, string password)
         {
 			User user = GetUserByEmail(email);
 			if (user != null)
             {
-				EmailService.SendEmail(new Email("Your Password is: " + _newPassword + "\nPlease log in with this new password and go to Edit User Details to choose a new password.", "Password Recovery", user.Email));
-                DeleteSavedNewPassword();
+				EmailService.SendEmail(new Email("Your Password is: " + password + "\nPlease log in with this new password and go to Edit User Details to choose a new password.", "Password Recovery", user.Email));
+               
 			}
 		}
         #endregion
 
-        #region Save New Password 
-        /// <summary>
-        /// Saves new password unhashed to be sent to user
-        /// </summary>
-        /// <param name="password"></param>
-        /// <returns></returns>
-        public string SaveNewPassword(string password)
-        { 
-            _newPassword = password;
-            return _newPassword;
-        }
-        #endregion
-
-        #region Private Delete Saved Password
-        /// <summary>
-        /// Deletes saved unhashed password. Used after password has been sent to user.
-        /// </summary>
-        private void DeleteSavedNewPassword()
-        {
-            _newPassword = "";            
-        }
-        #endregion
 
        
     }

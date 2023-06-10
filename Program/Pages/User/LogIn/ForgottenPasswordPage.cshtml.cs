@@ -50,7 +50,7 @@ namespace CTTSite.Pages.User.LogIn
                     }
 
                     var NewPassword = new String(stringChars);
-                    _userService.SaveNewPassword(NewPassword);
+
 
                     passwordHasher = new PasswordHasher<string>();                   
                     user.Id = user.Id;
@@ -60,7 +60,7 @@ namespace CTTSite.Pages.User.LogIn
                     user.Staff = user.Staff;
                     
                     _userService.UpdateUserAsync(user);
-                    _userService.ForgottenPassword(user.Email);
+                    _userService.ForgottenPassword(user.Email, NewPassword);
                     Message = "An email has been sent to you with your password!!!";
                     return Page();
                 }

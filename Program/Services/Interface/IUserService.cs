@@ -39,9 +39,9 @@ namespace CTTSite.Services.Interface
         IEnumerable<User> SortByEmailDescending();
 
 
-        void ForgottenPassword(string email);
+        void ForgottenPassword(string email, string password);
 
-        string SaveNewPassword(string password);
+    
 
 
 

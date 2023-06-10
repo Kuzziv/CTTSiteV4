@@ -5,8 +5,7 @@
 
 <body style="background-color:#f6d8cc;">
 
-    @if (User.Identity != null && User.IsInRole("staff") == true)
-    {
+  
             <div class="text-center border border-dark" style="width:80%; margin-inline:10%; padding-block:2%">
             <h2><b>Booked by: @Model.RoomBooking.UserEmail</b></h2><br />
             <br />
@@ -30,9 +29,6 @@
             <a asp-page="/TheRoomBooking/AllRoomBookingsPage" class="btn btn-outline-dark" style="margin-inline:1%">Back</a>
         </div>
     }
-    else
-    {
-    <h1 class="text-center"><b>You are not logged in as staff</b></h1>
-    }
+   
 
 </body>

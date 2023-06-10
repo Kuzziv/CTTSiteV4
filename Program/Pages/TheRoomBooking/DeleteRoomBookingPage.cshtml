@@ -5,8 +5,7 @@
 
 <body style="background-color:#f6d8cc;">
 
-    @if (User.Identity != null && (@Model.RoomBooking.UserEmail == User.Identity.Name || User.IsInRole("admin") == true))
-    {
+   
 
     <div class="text-center">
         <h1>Delete Confirmation</h1>
@@ -28,11 +27,7 @@
         </form>
     </div>
 
-    }
-    else
-    {
-        <h1 class="text-center"><b>You are not logged in as the creator of this room booking or as an admin</b></h1>
-    }
+   
 
 
 

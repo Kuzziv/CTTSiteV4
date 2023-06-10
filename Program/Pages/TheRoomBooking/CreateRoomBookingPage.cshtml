@@ -5,8 +5,7 @@
 
 <body style="background-color:#f6d8cc;">
 
-    @if (User.Identity != null && User.IsInRole("staff") == true)
-    {
+   
     <h1 class="text-center"><b>Create Booking</b></h1>
     <br />
     <h4 class="text-center text-danger">@Model.Message</h4>
@@ -37,11 +36,7 @@
         </div>
     </form>
 
-    }
-    else
-    {
-        <h1 class="text-center"><b>You are not logged in as staff</b></h1>
-    }
+  
 
 </body>
 
