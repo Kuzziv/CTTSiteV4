@@ -53,7 +53,7 @@ namespace CTTSite.Pages.Staff.Admin
                 return Page();
             }
 
-			var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!";
+			var chars = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz0123456789!";
 			var stringChars = new char[8];
 			var random = new Random();
 
